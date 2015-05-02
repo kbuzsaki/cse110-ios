@@ -19,6 +19,8 @@ class QuestionSelectorViewController: UIViewController, UITableViewDelegate, UIT
 
         self.myTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.myTableView.dataSource = self
+        self.myTableView.delegate = self
+
         // Do any additional setup after loading the view.
     }
 
@@ -36,11 +38,18 @@ class QuestionSelectorViewController: UIViewController, UITableViewDelegate, UIT
         
         cell.textLabel?.text = self.items[indexPath.row]
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        
         return cell
     }
 
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        var segue = tableView.cellForRowAtIndexPath(indexPath)!.textLabel?.text
+        self.performSegueWithIdentifier(segue, sender: nil)
+    }
+    
     /*
-    // MARK: - Navigation
+    // MARK,: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
