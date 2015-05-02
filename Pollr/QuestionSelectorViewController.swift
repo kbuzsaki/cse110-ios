@@ -46,6 +46,8 @@ class QuestionSelectorViewController: UIViewController, UITableViewDelegate, UIT
         
         var segue = tableView.cellForRowAtIndexPath(indexPath)!.textLabel?.text
         self.performSegueWithIdentifier(segue, sender: nil)
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     /*
