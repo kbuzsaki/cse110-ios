@@ -1,0 +1,424 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AC7E51221AF4550E000B4C18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7E51211AF4550E000B4C18 /* AppDelegate.swift */; };
+		AC7E51241AF4550E000B4C18 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7E51231AF4550E000B4C18 /* ViewController.swift */; };
+		AC7E51271AF4550E000B4C18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC7E51251AF4550E000B4C18 /* Main.storyboard */; };
+		AC7E51291AF4550E000B4C18 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC7E51281AF4550E000B4C18 /* Images.xcassets */; };
+		AC7E512C1AF4550E000B4C18 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC7E512A1AF4550E000B4C18 /* LaunchScreen.xib */; };
+		AC7E51381AF4550E000B4C18 /* PollrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7E51371AF4550E000B4C18 /* PollrTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AC7E51321AF4550E000B4C18 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC7E51141AF4550E000B4C18 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AC7E511B1AF4550E000B4C18;
+			remoteInfo = Pollr;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AC7E511C1AF4550E000B4C18 /* Pollr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pollr.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC7E51201AF4550E000B4C18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC7E51211AF4550E000B4C18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AC7E51231AF4550E000B4C18 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AC7E51261AF4550E000B4C18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AC7E51281AF4550E000B4C18 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		AC7E512B1AF4550E000B4C18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		AC7E51311AF4550E000B4C18 /* PollrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PollrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC7E51361AF4550E000B4C18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC7E51371AF4550E000B4C18 /* PollrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollrTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AC7E51191AF4550E000B4C18 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC7E512E1AF4550E000B4C18 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AC7E51131AF4550E000B4C18 = {
+			isa = PBXGroup;
+			children = (
+				AC7E511E1AF4550E000B4C18 /* Pollr */,
+				AC7E51341AF4550E000B4C18 /* PollrTests */,
+				AC7E511D1AF4550E000B4C18 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AC7E511D1AF4550E000B4C18 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AC7E511C1AF4550E000B4C18 /* Pollr.app */,
+				AC7E51311AF4550E000B4C18 /* PollrTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AC7E511E1AF4550E000B4C18 /* Pollr */ = {
+			isa = PBXGroup;
+			children = (
+				AC7E51211AF4550E000B4C18 /* AppDelegate.swift */,
+				AC7E51231AF4550E000B4C18 /* ViewController.swift */,
+				AC7E51251AF4550E000B4C18 /* Main.storyboard */,
+				AC7E51281AF4550E000B4C18 /* Images.xcassets */,
+				AC7E512A1AF4550E000B4C18 /* LaunchScreen.xib */,
+				AC7E511F1AF4550E000B4C18 /* Supporting Files */,
+			);
+			path = Pollr;
+			sourceTree = "<group>";
+		};
+		AC7E511F1AF4550E000B4C18 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AC7E51201AF4550E000B4C18 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AC7E51341AF4550E000B4C18 /* PollrTests */ = {
+			isa = PBXGroup;
+			children = (
+				AC7E51371AF4550E000B4C18 /* PollrTests.swift */,
+				AC7E51351AF4550E000B4C18 /* Supporting Files */,
+			);
+			path = PollrTests;
+			sourceTree = "<group>";
+		};
+		AC7E51351AF4550E000B4C18 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AC7E51361AF4550E000B4C18 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AC7E511B1AF4550E000B4C18 /* Pollr */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC7E513B1AF4550E000B4C18 /* Build configuration list for PBXNativeTarget "Pollr" */;
+			buildPhases = (
+				AC7E51181AF4550E000B4C18 /* Sources */,
+				AC7E51191AF4550E000B4C18 /* Frameworks */,
+				AC7E511A1AF4550E000B4C18 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Pollr;
+			productName = Pollr;
+			productReference = AC7E511C1AF4550E000B4C18 /* Pollr.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AC7E51301AF4550E000B4C18 /* PollrTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC7E513E1AF4550E000B4C18 /* Build configuration list for PBXNativeTarget "PollrTests" */;
+			buildPhases = (
+				AC7E512D1AF4550E000B4C18 /* Sources */,
+				AC7E512E1AF4550E000B4C18 /* Frameworks */,
+				AC7E512F1AF4550E000B4C18 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AC7E51331AF4550E000B4C18 /* PBXTargetDependency */,
+			);
+			name = PollrTests;
+			productName = PollrTests;
+			productReference = AC7E51311AF4550E000B4C18 /* PollrTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AC7E51141AF4550E000B4C18 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = Kabir;
+				TargetAttributes = {
+					AC7E511B1AF4550E000B4C18 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					AC7E51301AF4550E000B4C18 = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = AC7E511B1AF4550E000B4C18;
+					};
+				};
+			};
+			buildConfigurationList = AC7E51171AF4550E000B4C18 /* Build configuration list for PBXProject "Pollr" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AC7E51131AF4550E000B4C18;
+			productRefGroup = AC7E511D1AF4550E000B4C18 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AC7E511B1AF4550E000B4C18 /* Pollr */,
+				AC7E51301AF4550E000B4C18 /* PollrTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AC7E511A1AF4550E000B4C18 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC7E51271AF4550E000B4C18 /* Main.storyboard in Resources */,
+				AC7E512C1AF4550E000B4C18 /* LaunchScreen.xib in Resources */,
+				AC7E51291AF4550E000B4C18 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC7E512F1AF4550E000B4C18 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AC7E51181AF4550E000B4C18 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC7E51241AF4550E000B4C18 /* ViewController.swift in Sources */,
+				AC7E51221AF4550E000B4C18 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC7E512D1AF4550E000B4C18 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC7E51381AF4550E000B4C18 /* PollrTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AC7E51331AF4550E000B4C18 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AC7E511B1AF4550E000B4C18 /* Pollr */;
+			targetProxy = AC7E51321AF4550E000B4C18 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AC7E51251AF4550E000B4C18 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC7E51261AF4550E000B4C18 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AC7E512A1AF4550E000B4C18 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC7E512B1AF4550E000B4C18 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AC7E51391AF4550E000B4C18 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AC7E513A1AF4550E000B4C18 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AC7E513C1AF4550E000B4C18 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Pollr/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AC7E513D1AF4550E000B4C18 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Pollr/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		AC7E513F1AF4550E000B4C18 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PollrTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pollr.app/Pollr";
+			};
+			name = Debug;
+		};
+		AC7E51401AF4550E000B4C18 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PollrTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pollr.app/Pollr";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AC7E51171AF4550E000B4C18 /* Build configuration list for PBXProject "Pollr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC7E51391AF4550E000B4C18 /* Debug */,
+				AC7E513A1AF4550E000B4C18 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC7E513B1AF4550E000B4C18 /* Build configuration list for PBXNativeTarget "Pollr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC7E513C1AF4550E000B4C18 /* Debug */,
+				AC7E513D1AF4550E000B4C18 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AC7E513E1AF4550E000B4C18 /* Build configuration list for PBXNativeTarget "PollrTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC7E513F1AF4550E000B4C18 /* Debug */,
+				AC7E51401AF4550E000B4C18 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AC7E51141AF4550E000B4C18 /* Project object */;
+}
