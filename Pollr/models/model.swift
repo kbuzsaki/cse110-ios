@@ -8,3 +8,10 @@
 
 import Foundation
 
+protocol Model {
+    var id: Int { get }
+    var inflated: Bool { get }
+    func initFromJson(String)
+    func toJson() -> String
+    func refresh()
+}
