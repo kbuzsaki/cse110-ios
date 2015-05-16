@@ -58,6 +58,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3026E71B1B06C68800BC811A /* models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = models;
+			path = ../Model;
+			sourceTree = "<group>";
+		};
 		AC7E51131AF4550E000B4C18 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +87,7 @@
 		AC7E511E1AF4550E000B4C18 /* Pollr */ = {
 			isa = PBXGroup;
 			children = (
+				3026E71B1B06C68800BC811A /* models */,
 				ACE6AA5D1AF4620C00D3F47A /* HomeViewController.swift */,
 				AC7E51251AF4550E000B4C18 /* Main.storyboard */,
 				AC7E511F1AF4550E000B4C18 /* Supporting Files */,
