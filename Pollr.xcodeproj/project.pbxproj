@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3026E7201B06C74200BC811A /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3026E71F1B06C74200BC811A /* model.swift */; };
 		AC7E51221AF4550E000B4C18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7E51211AF4550E000B4C18 /* AppDelegate.swift */; };
 		AC7E51271AF4550E000B4C18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC7E51251AF4550E000B4C18 /* Main.storyboard */; };
 		AC7E51291AF4550E000B4C18 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC7E51281AF4550E000B4C18 /* Images.xcassets */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3026E71F1B06C74200BC811A /* model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
 		AC7E511C1AF4550E000B4C18 /* Pollr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pollr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC7E51201AF4550E000B4C18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC7E51211AF4550E000B4C18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -58,12 +60,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3026E71B1B06C68800BC811A /* models */ = {
+		3026E71E1B06C74200BC811A /* models */ = {
 			isa = PBXGroup;
 			children = (
+				3026E71F1B06C74200BC811A /* model.swift */,
 			);
-			name = models;
-			path = ../Model;
+			path = models;
 			sourceTree = "<group>";
 		};
 		AC7E51131AF4550E000B4C18 = {
@@ -87,7 +89,7 @@
 		AC7E511E1AF4550E000B4C18 /* Pollr */ = {
 			isa = PBXGroup;
 			children = (
-				3026E71B1B06C68800BC811A /* models */,
+				3026E71E1B06C74200BC811A /* models */,
 				ACE6AA5D1AF4620C00D3F47A /* HomeViewController.swift */,
 				AC7E51251AF4550E000B4C18 /* Main.storyboard */,
 				AC7E511F1AF4550E000B4C18 /* Supporting Files */,
@@ -227,6 +229,7 @@
 				AC7E51221AF4550E000B4C18 /* AppDelegate.swift in Sources */,
 				ACE6AA5E1AF4620C00D3F47A /* HomeViewController.swift in Sources */,
 				ACE6AA661AF4A1A400D3F47A /* QuestionSelectorViewController.swift in Sources */,
+				3026E7201B06C74200BC811A /* model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
