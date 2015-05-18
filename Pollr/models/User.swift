@@ -35,6 +35,7 @@ class User: Model {
         } else if let plist = object as? [NSObject: AnyObject] {
             return initFrom(plist)
         }
+        return User()
     }
     
     /* Constructor from id, checks cache. */

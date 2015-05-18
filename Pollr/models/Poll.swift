@@ -38,6 +38,8 @@ class Poll: Model {
         } else if let plist = object as? [NSObject: AnyObject] {
             return initFrom(plist)
         }
+        
+        return Poll()
     }
     
     /* Constructor from id, checks cache. */

@@ -34,6 +34,7 @@ class Group: Model {
         } else if let plist = object as? [NSObject: AnyObject] {
             return initFrom(propertyList: plist)
         }
+        return Group()
     }
     
     /* Constructor from id, checks cache. */
