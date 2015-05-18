@@ -8,20 +8,17 @@
 
 import Foundation
 
-typealias Time = String
-typealias PropertyList = [NSObject: AnyObject]
-
 class Poll: Model {
     private(set) var inflated: Bool = false
     private static var CACHE = [Int: Poll]()
     
     var id: Int?
     var creator: User?
-    var created: Time?
-    var last_modified: Time?
+    var created: String?
+    var last_modified: String?
     var group: Group?
     var name: String?
-    var questions = [Question]()
+    var questions: [Question]?
     
     private init() {
     }
@@ -30,7 +27,7 @@ class Poll: Model {
         self.id! = id
     }
     
-    private init(propertyList plist: PropertyList) {
+    private init(propertyList plist: [NSObject: AnyObject]) {
         updateFrom(propertyList: plist)
     }
     
@@ -38,8 +35,8 @@ class Poll: Model {
     static func initFrom(object: AnyObject) -> Poll {
         if let id = object as? Int {
             return initFrom(id)
-        } else if let plist = object as? PropertyList {
-            return initFrom(propertyList: plist)
+        } else if let plist = object as? [NSObject: AnyObject] {
+            return initFrom(plist)
         }
     }
     
@@ -55,39 +52,42 @@ class Poll: Model {
     }
     
     /* Constructor from property list, checks cache. */
-    static func initFrom(propertyList plist: PropertyList) -> Poll {
-        if let id = plist["id"] {
-            var poll = initFrom(id: id)
+    static func initFrom(propertyList plist: [NSObject: AnyObject]) -> Poll {
+        if let id = plist["id"] as? Int {
+            var poll = initFrom(id)
             poll.updateFrom(propertyList: plist)
-            return Poll
+            return poll
         } else {
-            return Poll(plist)
+            return Poll(propertyList: plist)
         }
     }
     
-    func updateFrom(propertyList plist: PropertyList) {
-        id = plist["id"] ?? id
-        group = plist["group"] ?? group
-        creator = plist["creator"] ?? creator
-        name = plist["name"] ?? name
-        created = plist["created"] ?? created
-        questions = plist["questions"] ?? questions
+    func updateFrom(propertyList plist: [NSObject: AnyObject]) {
+        id = plist["id"] as? Int ?? id
+        group = plist["group"] != nil ? Group.initFrom(plist["group"]!) : group
+        creator = plist["creator"] != nil ? User.initFrom(plist["creator"]!) : creator
+        name = plist["name"] as? String ?? name
+        created = plist["created"] as? String ?? created
+        questions = (plist["questions"] as? [AnyObject])?.map { Question.initFrom($0) } ?? questions
     }
     
-    func toPropertyList() -> PropertyList {
-        return [
-            "id"            : id,
-            "group"         : group,
-            "creator"       : creator,
-            "name"          : name,
-            "created"       : created,
-            "questions"     : questions.map { $0.toPropertyList() }
-        ]
+    func toPropertyList() -> [NSObject: AnyObject] {
+        var plist = [NSObject: AnyObject]()
+        if let id = id                  { plist["id"] = id }
+        if let group = group            { plist["group"] = group }
+        if let creator = creator        { plist["creator"] = creator }
+        if let name = name              { plist["name"] = name }
+        if let created = created        { plist["created"] = created }
+        if let questions = questions    { plist["questions"] = questions.map { $0.toPropertyList() } }
+        return plist
     }
         
     func inflate() {
         if !inflated {
-            // TODO: Make rest request.
+            var client = RestClient()
+            var plist = client.get(RestRouter.getPoll(id))
+            updateFrom(plist)
+            inflated = true
         }
     }
     

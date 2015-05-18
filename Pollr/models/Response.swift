@@ -8,9 +8,6 @@
 
 import Foundation
 
-typealias Time = String
-typealias PropertyList = [NSObject: AnyObject]
-
 class Response: Model {
     private(set) var inflated: Bool = false
     private static var CACHE = [Int: Response]()
@@ -24,7 +21,7 @@ class Response: Model {
         self.id! = id
     }
     
-    private init(propertyList plist: PropertyList) {
+    private init(propertyList plist: [NSObject: AnyObject]) {
         updateFrom(propertyList: plist)
     }
     
@@ -32,8 +29,8 @@ class Response: Model {
     static func initFrom(object: AnyObject) -> Response {
         if let id = object as? Int {
             return initFrom(id)
-        } else if let plist = object as? PropertyList {
-            return initFrom(propertyList: plist)
+        } else if let plist = object as? [NSObject: AnyObject] {
+            return initFrom(plist)
         }
     }
     
@@ -49,29 +46,32 @@ class Response: Model {
     }
     
     /* Constructor from property list, checks cache. */
-    static func initFrom(propertyList plist: PropertyList) -> Response {
-        if let id = plist["id"] {
-            var response = initFrom(id: id)
+    static func initFrom(propertyList plist: [NSObject: AnyObject]) -> Response {
+        if let id = plist["id"] as? Int {
+            var response = initFrom(id)
             response.updateFrom(propertyList: plist)
             return response
         } else {
-            return Response(plist)
+            return Response(propertyList: plist)
         }
     }
     
-    func updateFrom(propertyList plist: PropertyList) {
-        // TODO
+    func updateFrom(propertyList plist: [NSObject: AnyObject]) {
+        id = plist["id"] as? Int ?? id
     }
     
-    func toPropertyList() -> PropertyList {
-        return [
-            // TODO
-        ]
+    func toPropertyList() -> [NSObject: AnyObject] {
+        var plist = [NSObject: AnyObject]()
+        if let id = id { plist["id"] = id }
+        return plist
     }
     
     func inflate() {
-        if !inflated {
-            // TODO: Make rest request.
+        if !inflated, let id = id {
+            var client = RestClient()
+            var plist = client.get(RestRouter.getResponse(id))
+            updateFrom(plist)
+            inflated = true
         }
     }
     

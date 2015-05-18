@@ -9,8 +9,8 @@
 import Foundation
 
 class User: Model {
-    private(set) var inflated: Bool = false
     private static var CACHE = [Int: User]()
+    private(set) var inflated: Bool = false
     
     var id: Int?
     var hash: String?
@@ -61,8 +61,8 @@ class User: Model {
     
     func updateFrom(propertyList plist: [NSObject: AnyObject]) {
         id = plist["id"] as? Int ?? id
-        hash = plist["hash"] as String ?? hash
-        name = plist["name"] as String ?? name
+        hash = plist["hash"] as? String ?? hash
+        name = plist["name"] as? String ?? name
         groups = (plist["groups"] as? [AnyObject])?.map { Group.initFrom($0) } ?? groups
     }
     

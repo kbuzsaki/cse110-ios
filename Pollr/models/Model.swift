@@ -8,13 +8,9 @@
 
 import Foundation
 
-typealias PropertyList = [NSObject: AnyObject]
-
 protocol Model {
     var id: Int? { get set }
     var inflated: Bool { get }
     func inflate()
     func refresh()
-    func initFromPropertyList(PropertyList)
-    func toPropertyList() -> PropertyList
 }
