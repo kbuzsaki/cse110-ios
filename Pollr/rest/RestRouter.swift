@@ -13,7 +13,7 @@ import Foundation
 
 class RestRouter {
     
-    let URL_BASE = "http://128.54.180.125/api"
+    static let URL_BASE = "http://128.54.180.125/api"
     
     
     //GET
