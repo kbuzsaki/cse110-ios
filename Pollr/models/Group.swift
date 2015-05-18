@@ -75,7 +75,7 @@ class Group: Model {
     func inflate() {
         if !inflated {
             var client = RestClient()
-            var plist = client.get(RestRouter.getGroup(id)) as [NSObject: AnyObject]
+            var plist = client.get(RestRouter.getGroup(id))
             updateFrom(plist)
             inflated = true
         }
