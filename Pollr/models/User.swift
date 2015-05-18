@@ -8,9 +8,6 @@
 
 import Foundation
 
-typealias Time = String
-typealias PropertyList = [NSObject: AnyObject]
-
 class User: Model {
     private(set) var inflated: Bool = false
     private static var CACHE = [Int: User]()
@@ -18,7 +15,7 @@ class User: Model {
     var id: Int?
     var hash: String?
     var name: String?
-    var groups = [Group]()
+    var groups: [Group]?
     
     private init() {
     }
@@ -27,7 +24,7 @@ class User: Model {
         self.id = id
     }
     
-    private init(propertyList plist: PropertyList) {
+    private init(propertyList plist: [NSObject: AnyObject]) {
         updateFrom(propertyList: plist)
     }
     
@@ -35,46 +32,55 @@ class User: Model {
     static func initFrom(object: AnyObject) -> User {
         if let id = object as? Int {
             return initFrom(id)
-        } else if let plist = object as? PropertyList {
-            return initFrom(propertyList: plist)
+        } else if let plist = object as? [NSObject: AnyObject] {
+            return initFrom(plist)
         }
     }
     
     /* Constructor from id, checks cache. */
     static func initFrom(id: Int) -> User {
-        if let poll = CACHE[id] {
-            return poll
+        if let user = CACHE[id] {
+            return user
         } else {
-            var poll = User(id: id)
-            CACHE[id] = poll
-            return poll
+            var user = User(id: id)
+            CACHE[id] = user
+            return user
         }
     }
     
     /* Constructor from property list, checks cache. */
-    static func initFrom(propertyList plist: PropertyList) -> User {
-        if let id = plist["id"] {
-            var poll = initFrom(id: id)
-            poll.updateFrom(propertyList: plist)
-            return User
+    static func initFrom(propertyList plist: [NSObject: AnyObject]) -> User {
+        if let id = plist["id"] as? Int {
+            var user = initFrom(id)
+            user.updateFrom(propertyList: plist)
+            return user
         } else {
-            return User(plist)
+            return User(propertyList: plist)
         }
     }
     
-    func updateFrom(propertyList plist: PropertyList) {
-        id = plist["id"] ?? id
+    func updateFrom(propertyList plist: [NSObject: AnyObject]) {
+        id = plist["id"] as? Int ?? id
+        hash = plist["hash"] as String ?? hash
+        name = plist["name"] as String ?? name
+        groups = (plist["groups"] as? [AnyObject])?.map { Group.initFrom($0) } ?? groups
     }
     
-    func toPropertyList() -> PropertyList {
-        return [
-            "id"            : id
-        ]
+    func toPropertyList() -> [NSObject: AnyObject] {
+        var plist = [NSObject: AnyObject]()
+        if let id = id          { plist["id"] = id }
+        if let hash = hash      { plist["hash"] = hash }
+        if let name = name      { plist["name"] = name }
+        if let groups = groups  { plist["groups"] = groups.map { $0.toPropertyList() } }
+        return plist
     }
     
     func inflate() {
-        if !inflated {
-            // TODO: Make rest request.
+        if !inflated, let id = id{
+            var client = RestClient()
+            var plist = client.get(RestRouter.getUser(id))
+            updateFrom(plist)
+            inflated = true
         }
     }
     
