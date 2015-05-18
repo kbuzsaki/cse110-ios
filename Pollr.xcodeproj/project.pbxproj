@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		AC7E51221AF4550E000B4C18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7E51211AF4550E000B4C18 /* AppDelegate.swift */; };
-		AC7E51241AF4550E000B4C18 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7E51231AF4550E000B4C18 /* ViewController.swift */; };
 		AC7E51271AF4550E000B4C18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC7E51251AF4550E000B4C18 /* Main.storyboard */; };
 		AC7E51291AF4550E000B4C18 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC7E51281AF4550E000B4C18 /* Images.xcassets */; };
 		AC7E512C1AF4550E000B4C18 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC7E512A1AF4550E000B4C18 /* LaunchScreen.xib */; };
 		AC7E51381AF4550E000B4C18 /* PollrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7E51371AF4550E000B4C18 /* PollrTests.swift */; };
+		ACE6AA5E1AF4620C00D3F47A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE6AA5D1AF4620C00D3F47A /* HomeViewController.swift */; };
+		ACE6AA661AF4A1A400D3F47A /* QuestionSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE6AA651AF4A1A400D3F47A /* QuestionSelectorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +30,14 @@
 		AC7E511C1AF4550E000B4C18 /* Pollr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pollr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC7E51201AF4550E000B4C18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC7E51211AF4550E000B4C18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AC7E51231AF4550E000B4C18 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AC7E51261AF4550E000B4C18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC7E51281AF4550E000B4C18 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AC7E512B1AF4550E000B4C18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		AC7E51311AF4550E000B4C18 /* PollrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PollrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC7E51361AF4550E000B4C18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC7E51371AF4550E000B4C18 /* PollrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollrTests.swift; sourceTree = "<group>"; };
+		ACE6AA5D1AF4620C00D3F47A /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		ACE6AA651AF4A1A400D3F47A /* QuestionSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionSelectorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,12 +79,10 @@
 		AC7E511E1AF4550E000B4C18 /* Pollr */ = {
 			isa = PBXGroup;
 			children = (
-				AC7E51211AF4550E000B4C18 /* AppDelegate.swift */,
-				AC7E51231AF4550E000B4C18 /* ViewController.swift */,
+				ACE6AA5D1AF4620C00D3F47A /* HomeViewController.swift */,
 				AC7E51251AF4550E000B4C18 /* Main.storyboard */,
-				AC7E51281AF4550E000B4C18 /* Images.xcassets */,
-				AC7E512A1AF4550E000B4C18 /* LaunchScreen.xib */,
 				AC7E511F1AF4550E000B4C18 /* Supporting Files */,
+				ACE6AA651AF4A1A400D3F47A /* QuestionSelectorViewController.swift */,
 			);
 			path = Pollr;
 			sourceTree = "<group>";
@@ -90,6 +90,9 @@
 		AC7E511F1AF4550E000B4C18 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AC7E51281AF4550E000B4C18 /* Images.xcassets */,
+				AC7E51211AF4550E000B4C18 /* AppDelegate.swift */,
+				AC7E512A1AF4550E000B4C18 /* LaunchScreen.xib */,
 				AC7E51201AF4550E000B4C18 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -212,8 +215,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC7E51241AF4550E000B4C18 /* ViewController.swift in Sources */,
 				AC7E51221AF4550E000B4C18 /* AppDelegate.swift in Sources */,
+				ACE6AA5E1AF4620C00D3F47A /* HomeViewController.swift in Sources */,
+				ACE6AA661AF4A1A400D3F47A /* QuestionSelectorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +345,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Pollr/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -351,6 +356,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Pollr/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -409,6 +415,7 @@
 				AC7E513D1AF4550E000B4C18 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AC7E513E1AF4550E000B4C18 /* Build configuration list for PBXNativeTarget "PollrTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +424,7 @@
 				AC7E51401AF4550E000B4C18 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
