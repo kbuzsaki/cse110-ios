@@ -17,33 +17,33 @@ class RestRouter {
     
     
     //GET
-    func getGroup(groupId:Int) -> String {
-        return URL_BASE + "/group/\(groupId)"
+    static func getGroup(id: Int) -> String {
+        return URL_BASE + "/group/\(id)"
     }
     
-    func getUser(userId:Int) -> String {
-        return URL_BASE + "/user/\(userId)"
+    static func getUser(id: Int) -> String {
+        return URL_BASE + "/user/\(id)"
     }
     
-    func getPoll(pollId:Int) -> String {
-        return URL_BASE + "/poll/\(pollId)"
+    static func getPoll(id: Int) -> String {
+        return URL_BASE + "/poll/\(id)"
     }
     
-    func getQuestion(questionId:Int) -> String {
-        return URL_BASE + "/question\(questionId)";
+    static func getQuestion(id: Int) -> String {
+        return URL_BASE + "/question\(id)";
     }
     
-    func getResponse(responseId:Int) -> String {
-        return URL_BASE + "/response/\(responseId)"
+    static func getResponse(id: Int) -> String {
+        return URL_BASE + "/response/\(id)"
     }
     
     
     //POST
-    func postPoll() -> String {
+    static func postPoll() -> String {
         return URL_BASE + "/poll/create/"
     }
     
-    func postResponse() -> String {
+    static func postResponse() -> String {
         return URL_BASE + "/response/create"
     }
     

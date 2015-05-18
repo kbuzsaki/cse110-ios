@@ -18,7 +18,7 @@ class RestClient {
     
     
     //MARK: Get
-    func get(route:String) -> [NSObject: AnyObject]? {
+    func get(route: String) -> [NSObject: AnyObject]? {
         
         let url = NSURL(string: route)!
         var request = NSURLRequest(URL: url)
@@ -43,17 +43,17 @@ class RestClient {
     
     
     //MARK: Put
-    func put(route:String, data:[NSObject: AnyObject]) {
+    func put(route: String, data: [NSObject: AnyObject]) {
         putOrPost(route, data: data, method: "PUT")
     }
     
     //MARK: Post
-    func post(route:String, data:[NSObject: AnyObject]) {
+    func post(route: String, data: [NSObject: AnyObject]) {
         putOrPost(route, data: data, method: "POST")
     }
     
     
-    private func putOrPost(route:String, data:[NSObject: AnyObject], method:String) {
+    private func putOrPost(route: String, data: [NSObject: AnyObject], method: String) {
         
         let url = NSURL(string: route)!
         var request = NSMutableURLRequest(URL: url)
