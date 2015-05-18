@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3026E7201B06C74200BC811A /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3026E71F1B06C74200BC811A /* model.swift */; };
+		30C4D4FD1B097E870003C6CC /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C4D4FB1B097E870003C6CC /* RestClient.swift */; };
+		30C4D4FE1B097E870003C6CC /* RestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C4D4FC1B097E870003C6CC /* RestRouter.swift */; };
 		AC7E51221AF4550E000B4C18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7E51211AF4550E000B4C18 /* AppDelegate.swift */; };
 		AC7E51271AF4550E000B4C18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC7E51251AF4550E000B4C18 /* Main.storyboard */; };
 		AC7E51291AF4550E000B4C18 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC7E51281AF4550E000B4C18 /* Images.xcassets */; };
@@ -28,7 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3026E71F1B06C74200BC811A /* model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
+		30C4D4FB1B097E870003C6CC /* RestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestClient.swift; sourceTree = "<group>"; };
+		30C4D4FC1B097E870003C6CC /* RestRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestRouter.swift; sourceTree = "<group>"; };
 		AC7E511C1AF4550E000B4C18 /* Pollr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pollr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC7E51201AF4550E000B4C18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC7E51211AF4550E000B4C18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,12 +62,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3026E71E1B06C74200BC811A /* models */ = {
+		30C4D4FA1B097E870003C6CC /* rest */ = {
 			isa = PBXGroup;
 			children = (
-				3026E71F1B06C74200BC811A /* model.swift */,
+				30C4D4FB1B097E870003C6CC /* RestClient.swift */,
+				30C4D4FC1B097E870003C6CC /* RestRouter.swift */,
 			);
-			path = models;
+			path = rest;
 			sourceTree = "<group>";
 		};
 		AC7E51131AF4550E000B4C18 = {
@@ -89,7 +92,7 @@
 		AC7E511E1AF4550E000B4C18 /* Pollr */ = {
 			isa = PBXGroup;
 			children = (
-				3026E71E1B06C74200BC811A /* models */,
+				30C4D4FA1B097E870003C6CC /* rest */,
 				ACE6AA5D1AF4620C00D3F47A /* HomeViewController.swift */,
 				AC7E51251AF4550E000B4C18 /* Main.storyboard */,
 				AC7E511F1AF4550E000B4C18 /* Supporting Files */,
@@ -226,10 +229,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30C4D4FD1B097E870003C6CC /* RestClient.swift in Sources */,
 				AC7E51221AF4550E000B4C18 /* AppDelegate.swift in Sources */,
 				ACE6AA5E1AF4620C00D3F47A /* HomeViewController.swift in Sources */,
 				ACE6AA661AF4A1A400D3F47A /* QuestionSelectorViewController.swift in Sources */,
-				3026E7201B06C74200BC811A /* model.swift in Sources */,
+				30C4D4FE1B097E870003C6CC /* RestRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
