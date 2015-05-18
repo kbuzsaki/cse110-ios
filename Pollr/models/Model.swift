@@ -11,6 +11,6 @@ import Foundation
 protocol Model {
     var id: Int? { get set }
     var inflated: Bool { get }
-    func inflate()
-    func refresh()
+    func inflate() -> NSError?
+    func refresh() -> NSError?
 }

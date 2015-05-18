@@ -66,17 +66,26 @@ class Response: Model {
         return plist
     }
     
-    func inflate() {
-        if !inflated, let id = id {
+    func inflate() -> NSError? {
+        if !inflated, let id = id  {
             var client = RestClient()
-            var plist = client.get(RestRouter.getResponse(id))
-            updateFrom(plist)
-            inflated = true
+            var (error, plist) = client.get(RestRouter.getResponse(id))
+            
+            if let error = error {
+                return error
+            }
+            
+            if let plist = plist {
+                updateFrom(propertyList: plist)
+                inflated = true
+            }
         }
+        
+        return nil
     }
     
-    func refresh() {
+    func refresh() -> NSError? {
         inflated = false
-        inflate()
+        return inflate()
     }
 }

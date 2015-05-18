@@ -18,7 +18,7 @@ class RestClient {
     
     
     //MARK: Get
-    func get(route: String) -> [NSObject: AnyObject]? {
+    func get(route: String) -> (NSError?, [NSObject: AnyObject]?) {
         
         let url = NSURL(string: route)!
         var request = NSURLRequest(URL: url)
@@ -26,34 +26,34 @@ class RestClient {
         var error: NSError?
         var urlData = NSURLConnection.sendSynchronousRequest(request, returningResponse: &response, error: &error)!
         
-        if error != nil {
-            println(error!.localizedDescription)
-            return nil
+        if let error = error {
+            println(error.localizedDescription)
+            return (error, nil)
         }
         
         var retValue = NSJSONSerialization.JSONObjectWithData(urlData, options: nil, error: &error) as? [NSObject: AnyObject]
         
-        if error != nil {
-            println(error!.localizedDescription)
-            return nil
+        if let error = error {
+            println(error.localizedDescription)
+            return (error, nil)
         }
         
-        return retValue
+        return (error, retValue)
     }
     
     
     //MARK: Put
-    func put(route: String, data: [NSObject: AnyObject]) {
-        putOrPost(route, data: data, method: "PUT")
+    func put(route: String, data: [NSObject: AnyObject]) -> NSError? {
+         return putOrPost(route, data: data, method: "PUT")
     }
     
     //MARK: Post
-    func post(route: String, data: [NSObject: AnyObject]) {
-        putOrPost(route, data: data, method: "POST")
+    func post(route: String, data: [NSObject: AnyObject]) -> NSError? {
+         return putOrPost(route, data: data, method: "POST")
     }
     
     
-    private func putOrPost(route: String, data: [NSObject: AnyObject], method: String) {
+    private func putOrPost(route: String, data: [NSObject: AnyObject], method: String) -> NSError? {
         
         let url = NSURL(string: route)!
         var request = NSMutableURLRequest(URL: url)
@@ -63,9 +63,9 @@ class RestClient {
         //convert data to JSON
         var jsonObject = NSJSONSerialization.dataWithJSONObject(data, options: nil, error: &error)
         
-        if error != nil {
-            println("Failed to convert data to JSON: \(error?.localizedDescription)")
-            return
+        if let error = error {
+            println("ERROR: Failed to convert data to JSON: \(error.localizedDescription)")
+            return error
         }
         
         //prepare request as post and attach json object
@@ -77,10 +77,12 @@ class RestClient {
         
         var urlData = NSURLConnection.sendSynchronousRequest(request, returningResponse: &response, error: &error)
         
-        if error != nil {
-            println("Could not post: \(error?.localizedDescription)")
-            return
+        if let error = error {
+            println("ERROR: Could not post: \(error.localizedDescription)")
+            return error
         }
+        
+        return nil
     }
     
     
