@@ -32,6 +32,7 @@ class Response: Model {
         } else if let plist = object as? [NSObject: AnyObject] {
             return initFrom(plist)
         }
+        return Response()
     }
     
     /* Constructor from id, checks cache. */
