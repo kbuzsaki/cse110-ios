@@ -15,12 +15,13 @@
 		3026E7391B097BED00BC811A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3026E7331B097BED00BC811A /* User.swift */; };
 		30D123691B0980280031D055 /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D123671B0980280031D055 /* RestClient.swift */; };
 		30D1236A1B0980280031D055 /* RestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D123681B0980280031D055 /* RestRouter.swift */; };
+		AC7A5C6F1B0ADA570079A29F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7A5C6E1B0ADA570079A29F /* HomeViewController.swift */; };
+		AC7A5C711B0AF1C10079A29F /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7A5C701B0AF1C10079A29F /* GroupTableViewCell.swift */; };
 		AC7E51221AF4550E000B4C18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7E51211AF4550E000B4C18 /* AppDelegate.swift */; };
 		AC7E51271AF4550E000B4C18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC7E51251AF4550E000B4C18 /* Main.storyboard */; };
 		AC7E51291AF4550E000B4C18 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC7E51281AF4550E000B4C18 /* Images.xcassets */; };
 		AC7E512C1AF4550E000B4C18 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC7E512A1AF4550E000B4C18 /* LaunchScreen.xib */; };
 		AC7E51381AF4550E000B4C18 /* PollrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7E51371AF4550E000B4C18 /* PollrTests.swift */; };
-		ACE6AA5E1AF4620C00D3F47A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE6AA5D1AF4620C00D3F47A /* HomeViewController.swift */; };
 		ACE6AA661AF4A1A400D3F47A /* QuestionSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE6AA651AF4A1A400D3F47A /* QuestionSelectorViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,8 @@
 		3026E7331B097BED00BC811A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		30D123671B0980280031D055 /* RestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestClient.swift; sourceTree = "<group>"; };
 		30D123681B0980280031D055 /* RestRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestRouter.swift; sourceTree = "<group>"; };
+		AC7A5C6E1B0ADA570079A29F /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		AC7A5C701B0AF1C10079A29F /* GroupTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
 		AC7E511C1AF4550E000B4C18 /* Pollr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pollr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC7E51201AF4550E000B4C18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC7E51211AF4550E000B4C18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -52,7 +55,6 @@
 		AC7E51311AF4550E000B4C18 /* PollrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PollrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC7E51361AF4550E000B4C18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC7E51371AF4550E000B4C18 /* PollrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollrTests.swift; sourceTree = "<group>"; };
-		ACE6AA5D1AF4620C00D3F47A /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		ACE6AA651AF4A1A400D3F47A /* QuestionSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionSelectorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,10 +122,11 @@
 			children = (
 				3026E72D1B097BED00BC811A /* models */,
 				30D123661B0980280031D055 /* rest */,
-				ACE6AA5D1AF4620C00D3F47A /* HomeViewController.swift */,
 				AC7E51251AF4550E000B4C18 /* Main.storyboard */,
 				AC7E511F1AF4550E000B4C18 /* Supporting Files */,
 				ACE6AA651AF4A1A400D3F47A /* QuestionSelectorViewController.swift */,
+				AC7A5C6E1B0ADA570079A29F /* HomeViewController.swift */,
+				AC7A5C701B0AF1C10079A29F /* GroupTableViewCell.swift */,
 			);
 			path = Pollr;
 			sourceTree = "<group>";
@@ -259,11 +262,12 @@
 				3026E7381B097BED00BC811A /* Response.swift in Sources */,
 				3026E7351B097BED00BC811A /* Model.swift in Sources */,
 				AC7E51221AF4550E000B4C18 /* AppDelegate.swift in Sources */,
-				ACE6AA5E1AF4620C00D3F47A /* HomeViewController.swift in Sources */,
+				AC7A5C711B0AF1C10079A29F /* GroupTableViewCell.swift in Sources */,
 				ACE6AA661AF4A1A400D3F47A /* QuestionSelectorViewController.swift in Sources */,
 				3026E7391B097BED00BC811A /* User.swift in Sources */,
 				3026E7361B097BED00BC811A /* Poll.swift in Sources */,
 				30D1236A1B0980280031D055 /* RestRouter.swift in Sources */,
+				AC7A5C6F1B0ADA570079A29F /* HomeViewController.swift in Sources */,
 				3026E7371B097BED00BC811A /* Question.swift in Sources */,
 				30D123691B0980280031D055 /* RestClient.swift in Sources */,
 				3026E7341B097BED00BC811A /* Group.swift in Sources */,
