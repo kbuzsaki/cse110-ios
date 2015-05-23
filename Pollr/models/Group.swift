@@ -65,7 +65,8 @@ class Group: Model {
         id = plist["id"] as? Int ?? id
         name = plist["name"] as? String ?? name
         members = (plist["members"] as? [AnyObject])?.map { User.initFrom($0) } ?? members
-        updatedAt = (plist["updatedAt"] as? String ?? name)
+        updatedAt = plist["updatedAt"] as? String ?? name
+        polls = (plist["polls"] as? [AnyObject])?.map { Poll.initFrom($0) } ?? polls
     }
     
     func toPropertyList() -> [NSObject: AnyObject] {
@@ -74,6 +75,7 @@ class Group: Model {
         if let name = name          { plist["name"] = name }
         if let members = members    { plist["members"] = members.map { $0.toPropertyList() } }
         if let updatedAt = updatedAt{ plist["updatedAt"] = updatedAt }
+        if let polls = polls        { plist["polls"] = polls.map { $0.toPropertyList() } }
         return plist
     }
 
