@@ -30,7 +30,7 @@ class Response: Model {
         if let id = object as? Int {
             return initFrom(id)
         } else if let plist = object as? [NSObject: AnyObject] {
-            return initFrom(plist)
+            return initFrom(propertyList: plist)
         }
         return Response()
     }

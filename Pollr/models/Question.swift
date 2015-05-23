@@ -34,7 +34,7 @@ class Question: Model {
         if let id = object as? Int {
             return initFrom(id)
         } else if let plist = object as? [NSObject: AnyObject] {
-            return initFrom(plist)
+            return initFrom(propertyList: plist)
         }
         return Question()
     }
@@ -72,7 +72,7 @@ class Question: Model {
     func toPropertyList() -> [NSObject: AnyObject] {
         var plist = [NSObject: AnyObject]()
         if let id = id                  { plist["id"] = id }
-        if let poll = poll              { plist["poll"] = poll.toPropertyList() }
+        if let poll = poll              { plist["poll"] = poll.id }
         if let title = title            { plist["title"] = title }
         if let type = type              { plist["type"] = type }
         if let responses = responses    { plist["responses"] = responses.map { $0.toPropertyList() } }
