@@ -37,7 +37,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         user.inflate()
         cell.group = user.groups?[indexPath.row]
-        println(user.groups?[indexPath.row].inflate())
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         
         return cell
@@ -47,6 +46,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if segue.identifier == pollViewSegueIdentifier {
             if let destination = segue.destinationViewController as? ShowPollViewController {
                 if let row = tableView.indexPathForSelectedRow()?.row {
+                    var polls = user.groups?[row].polls
+                    destination.polls = polls
                 }
             }
         }

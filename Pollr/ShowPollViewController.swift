@@ -8,14 +8,16 @@
 
 import UIKit
 
-class ShowPollViewController: UIViewController {
+class ShowPollViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
 
-    @IBOutlet weak var someLabel: UILabel!
-    
+    @IBOutlet weak var tableView: UITableView!
+    var textCellIdentifier = "PollCell"
+    var polls:[Poll]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
         // Do any additional setup after loading the view.
     }
 
@@ -24,9 +26,23 @@ class ShowPollViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillAppear(animated: Bool) {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return polls!.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(textCellIdentifier, forIndexPath: indexPath) as! PollTableViewCell
+        //polls?[indexPath.row].inflate()
+        cell.poll = polls?[indexPath.row]
+        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        return cell
         
     }
+    
     
     /*
     // MARK: - Navigation
