@@ -99,6 +99,16 @@
 			path = Pollr/rest;
 			sourceTree = SOURCE_ROOT;
 		};
+		AC59D0561B10028B00024E57 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				ACE6AA651AF4A1A400D3F47A /* QuestionSelectorViewController.swift */,
+				AC7A5C6E1B0ADA570079A29F /* HomeViewController.swift */,
+				AC7A5C701B0AF1C10079A29F /* GroupTableViewCell.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		AC7E51131AF4550E000B4C18 = {
 			isa = PBXGroup;
 			children = (
@@ -124,9 +134,7 @@
 				30D123661B0980280031D055 /* rest */,
 				AC7E51251AF4550E000B4C18 /* Main.storyboard */,
 				AC7E511F1AF4550E000B4C18 /* Supporting Files */,
-				ACE6AA651AF4A1A400D3F47A /* QuestionSelectorViewController.swift */,
-				AC7A5C6E1B0ADA570079A29F /* HomeViewController.swift */,
-				AC7A5C701B0AF1C10079A29F /* GroupTableViewCell.swift */,
+				AC59D0561B10028B00024E57 /* Controllers */,
 			);
 			path = Pollr;
 			sourceTree = "<group>";
