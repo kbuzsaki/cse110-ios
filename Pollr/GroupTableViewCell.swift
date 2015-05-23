@@ -12,6 +12,7 @@ class GroupTableViewCell: UITableViewCell {
 
     var group:Group? {
         didSet {
+            group?.inflate()
             updateUI()
         }
     }

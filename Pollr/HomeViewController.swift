@@ -12,8 +12,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     @IBOutlet var tableView: UITableView!
     let textCellIdentifier = "TextCell"
+    let pollViewSegueIdentifier = "ShowPolls"
     var id:Int? = 1
-    let group = Group.initFrom(1)
+    let user = User.initFrom(1)
     
     
     override func viewDidLoad() {
@@ -23,20 +24,32 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        user.inflate()
+        return user.groups!.count
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(textCellIdentifier, forIndexPath: indexPath) as! GroupTableViewCell
         
-        group.inflate()
-        cell.group = group
+        user.inflate()
+        cell.group = user.groups?[indexPath.row]
+        println(user.groups?[indexPath.row].inflate())
+        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         
         return cell
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == pollViewSegueIdentifier {
+            if let destination = segue.destinationViewController as? ShowPollViewController {
+                if let row = tableView.indexPathForSelectedRow()?.row {
+                }
+            }
+        }
     }
     
 }

@@ -16,6 +16,7 @@ class Group: Model {
     var name: String?
     var members: [User]?
     var updatedAt: String?
+    var polls: [Poll]?
     
     private init() {
     }
