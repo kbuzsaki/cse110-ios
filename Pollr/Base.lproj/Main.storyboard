@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ezt-KF-5HO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ezt-KF-5HO">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -144,7 +144,7 @@
                     <navigationItem key="navigationItem" title="Create Poll" id="nse-UF-o8V"/>
                     <connections>
                         <outlet property="myTableView" destination="LN3-b6-uJZ" id="mNs-lf-bTT"/>
-                        <segue destination="T5E-HH-zNZ" kind="show" identifier="Multiple Choice" id="PFh-hZ-vh8"/>
+                        <segue destination="NGD-pi-iPz" kind="show" identifier="Multiple Choice" id="PFh-hZ-vh8"/>
                         <segue destination="G16-mv-5WF" kind="show" identifier="Rank Preference" id="mSa-DP-VWn"/>
                         <segue destination="bwo-DY-SIF" kind="show" identifier="Schedule Integration" id="Rra-vJ-9ik"/>
                     </connections>
@@ -205,10 +205,10 @@
             </objects>
             <point key="canvasLocation" x="2719" y="1238"/>
         </scene>
-        <!--View Controller-->
+        <!--Multiple Choice Question-->
         <scene sceneID="5QB-dd-ae7">
             <objects>
-                <viewController id="T5E-HH-zNZ" sceneMemberID="viewController">
+                <viewController id="T5E-HH-zNZ" customClass="MCViewController" customModule="Pollr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bQZ-a3-Jkq"/>
                         <viewControllerLayoutGuide type="bottom" id="gEH-Ih-UzP"/>
@@ -217,19 +217,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MC" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iO7-SO-PLg">
-                                <rect key="frame" x="66" y="332" width="28" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="geW-oW-evZ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="addCell" id="XV8-AD-9TM">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XV8-AD-9TM" id="ACi-cN-eOA">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="T5E-HH-zNZ" id="Fk4-tw-K68"/>
+                                    <outlet property="delegate" destination="T5E-HH-zNZ" id="tnH-Ut-r19"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Multiple Choice Question" id="fJ5-lb-D0Y">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="ell-lT-CTS">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" id="T2z-2k-jBD">
+                                <rect key="frame" x="451" y="7" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addOption:" destination="T5E-HH-zNZ" eventType="touchUpInside" id="Lun-GW-nZf"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="shg-AZ-Bzo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3565" y="255"/>
+            <point key="canvasLocation" x="4377" y="255"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="a3C-PG-dmW">
@@ -248,6 +272,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SJz-Es-Qb5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1757" y="191"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QWu-Ss-9Fo">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NGD-pi-iPz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Kfa-oY-lO5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="T5E-HH-zNZ" kind="relationship" relationship="rootViewController" id="NNw-wb-vlq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3o7-df-vpC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3565" y="255"/>
         </scene>
     </scenes>
 </document>

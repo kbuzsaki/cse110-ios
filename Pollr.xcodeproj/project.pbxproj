@@ -23,6 +23,7 @@
 		AC7E512C1AF4550E000B4C18 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC7E512A1AF4550E000B4C18 /* LaunchScreen.xib */; };
 		AC7E51381AF4550E000B4C18 /* PollrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7E51371AF4550E000B4C18 /* PollrTests.swift */; };
 		ACE6AA661AF4A1A400D3F47A /* QuestionSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE6AA651AF4A1A400D3F47A /* QuestionSelectorViewController.swift */; };
+		ED985F011B12EBFB008250B4 /* MCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED985F001B12EBFB008250B4 /* MCViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		AC7E51361AF4550E000B4C18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC7E51371AF4550E000B4C18 /* PollrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollrTests.swift; sourceTree = "<group>"; };
 		ACE6AA651AF4A1A400D3F47A /* QuestionSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionSelectorViewController.swift; sourceTree = "<group>"; };
+		ED985F001B12EBFB008250B4 /* MCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				ACE6AA651AF4A1A400D3F47A /* QuestionSelectorViewController.swift */,
 				AC7A5C6E1B0ADA570079A29F /* HomeViewController.swift */,
 				AC7A5C701B0AF1C10079A29F /* GroupTableViewCell.swift */,
+				ED985F001B12EBFB008250B4 /* MCViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				AC7A5C6F1B0ADA570079A29F /* HomeViewController.swift in Sources */,
 				3026E7371B097BED00BC811A /* Question.swift in Sources */,
 				30D123691B0980280031D055 /* RestClient.swift in Sources */,
+				ED985F011B12EBFB008250B4 /* MCViewController.swift in Sources */,
 				3026E7341B097BED00BC811A /* Group.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
