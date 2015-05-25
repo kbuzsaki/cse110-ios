@@ -23,7 +23,13 @@ class PollTableViewCell: UITableViewCell {
     
     func updateUI() {
         pollName.text = poll?.name
-        numQuestions.text = "\(poll?.questions?.count) questions"
+        
+        numQuestions.text = "\(poll!.questions!.count) question"
+        
+        if(poll!.questions!.count > 1) {
+            numQuestions.text?.append(Character("s"))
+        }
+        
         timeStamp.text = poll?.last_modified
     }
 }

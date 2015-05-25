@@ -12,6 +12,7 @@ class ShowPollViewController: UIViewController, UITableViewDataSource, UITableVi
 
     @IBOutlet weak var tableView: UITableView!
     var textCellIdentifier = "PollCell"
+    var segueIdentifier = "VotingSegue"
     var polls:[Poll]?
     
     override func viewDidLoad() {
@@ -36,13 +37,29 @@ class ShowPollViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(textCellIdentifier, forIndexPath: indexPath) as! PollTableViewCell
-        //polls?[indexPath.row].inflate()
+        
+        polls?[indexPath.row].inflate()
         cell.poll = polls?[indexPath.row]
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         return cell
         
     }
     
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == segueIdentifier {
+            if let destination = segue.destinationViewController as? MCViewController {
+                if let row = tableView.indexPathForSelectedRow()?.row {
+                    var questions = polls?[row].questions
+                    destination.questions = questions
+                }
+            }
+        }
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
     
     /*
     // MARK: - Navigation

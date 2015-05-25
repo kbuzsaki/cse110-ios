@@ -17,6 +17,8 @@ class Question: Model {
     var title: String?
     var type: String?
     var responses: [Response]?
+    var options = ["Choice 1", "Choice 2", "Choice 3"]
+    
     
     private init() {
     }
