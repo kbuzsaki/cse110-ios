@@ -236,20 +236,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Multiple Choice Question" id="fJ5-lb-D0Y">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="ell-lT-CTS">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" id="T2z-2k-jBD">
-                                <rect key="frame" x="451" y="7" width="22" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="addOption:" destination="T5E-HH-zNZ" eventType="touchUpInside" id="Lun-GW-nZf"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Multiple Choice Question" id="fJ5-lb-D0Y"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="shg-AZ-Bzo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

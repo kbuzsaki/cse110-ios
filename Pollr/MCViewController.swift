@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MCViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MCViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate {
 
     var tableView = UITableView()
     var showsArray = Array<String>()
@@ -96,9 +96,16 @@ class MCViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     
-    @IBAction func addOption(sender: AnyObject) {
+    @IBAction func didTapAdd(sender: AnyObject) {
+        var alert = UIAlertView(title: "New Option", message: "Type in MC option", delegate: self,
+            cancelButtonTitle: "Cancel",
+            otherButtonTitles: "Add")
         
+        alert.alertViewStyle = UIAlertViewStyle.PlainTextInput
+        
+        alert.show()
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
