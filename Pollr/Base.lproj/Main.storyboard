@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ezt-KF-5HO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ezt-KF-5HO">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -205,7 +205,7 @@
             </objects>
             <point key="canvasLocation" x="2719" y="1238"/>
         </scene>
-        <!--Multiple Choice Create-->
+        <!--Multiple Choice-->
         <scene sceneID="5QB-dd-ae7">
             <objects>
                 <viewController id="T5E-HH-zNZ" customClass="MultipleChoiceCreateController" customModule="Pollr" customModuleProvider="target" sceneMemberID="viewController">
@@ -218,24 +218,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FPA-cS-WFl">
-                                <rect key="frame" x="31" y="107" width="301" height="30"/>
+                                <rect key="frame" x="150" y="107" width="301" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="301" id="LRw-ij-gI5"/>
+                                    <constraint firstAttribute="width" constant="301" id="9pY-7G-9wj"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Add a Question" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBz-JY-bbj">
-                                <rect key="frame" x="31" y="72" width="120" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a Question" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBz-JY-bbj">
+                                <rect key="frame" x="240" y="72" width="120" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="5uA-v0-KUd"/>
+                                    <constraint firstAttribute="width" constant="120" id="2BB-Zb-Evt"/>
+                                    <constraint firstAttribute="height" constant="21" id="sFr-BE-Qbz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Khy-Z7-jOV">
+                                <rect key="frame" x="277" y="145" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addButton:" destination="T5E-HH-zNZ" eventType="touchUpInside" id="wZR-4m-2fR"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="M5N-xs-tbb">
-                                <rect key="frame" x="0.0" y="155" width="600" height="445"/>
+                                <rect key="frame" x="0.0" y="175" width="600" height="445"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.94999999999999996" height="1"/>
                                 <prototypes>
@@ -252,29 +262,22 @@
                                     <outlet property="delegate" destination="T5E-HH-zNZ" id="oMP-lj-rDP"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Khy-Z7-jOV">
-                                <rect key="frame" x="185" y="69" width="46" height="30"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="addButton:" destination="T5E-HH-zNZ" eventType="touchUpInside" id="wZR-4m-2fR"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="M5N-xs-tbb" firstAttribute="leading" secondItem="QDB-SZ-9ao" secondAttribute="leading" id="2Ym-Tk-BTc"/>
-                            <constraint firstItem="yBz-JY-bbj" firstAttribute="top" secondItem="bQZ-a3-Jkq" secondAttribute="bottom" constant="14" id="3XR-mO-bOr"/>
-                            <constraint firstItem="M5N-xs-tbb" firstAttribute="top" secondItem="FPA-cS-WFl" secondAttribute="bottom" constant="18" id="5KD-eq-tPt"/>
-                            <constraint firstItem="FPA-cS-WFl" firstAttribute="leading" secondItem="yBz-JY-bbj" secondAttribute="leading" id="WCM-Wt-5Zq"/>
-                            <constraint firstItem="M5N-xs-tbb" firstAttribute="bottom" secondItem="gEH-Ih-UzP" secondAttribute="top" id="WpA-EP-K9L"/>
-                            <constraint firstItem="FPA-cS-WFl" firstAttribute="top" secondItem="yBz-JY-bbj" secondAttribute="bottom" constant="8" symbolic="YES" id="X9n-HP-SEi"/>
-                            <constraint firstItem="yBz-JY-bbj" firstAttribute="leading" secondItem="QDB-SZ-9ao" secondAttribute="leadingMargin" constant="15" id="YoO-mO-UGG"/>
-                            <constraint firstAttribute="trailing" secondItem="M5N-xs-tbb" secondAttribute="trailing" id="m0g-xe-EJy"/>
+                            <constraint firstItem="FPA-cS-WFl" firstAttribute="top" secondItem="yBz-JY-bbj" secondAttribute="bottom" constant="14" id="9Vh-GT-W8O"/>
+                            <constraint firstItem="M5N-xs-tbb" firstAttribute="centerX" secondItem="FPA-cS-WFl" secondAttribute="centerX" id="A5B-tA-QIn"/>
+                            <constraint firstItem="M5N-xs-tbb" firstAttribute="centerX" secondItem="yBz-JY-bbj" secondAttribute="centerX" id="BBo-bc-B3P"/>
+                            <constraint firstItem="M5N-xs-tbb" firstAttribute="centerX" secondItem="Khy-Z7-jOV" secondAttribute="centerX" id="BZS-5p-379"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="M5N-xs-tbb" secondAttribute="bottom" constant="-20" id="QhU-l5-BUI"/>
+                            <constraint firstItem="M5N-xs-tbb" firstAttribute="leading" secondItem="QDB-SZ-9ao" secondAttribute="leading" id="kln-0v-9bF"/>
+                            <constraint firstItem="M5N-xs-tbb" firstAttribute="top" secondItem="Khy-Z7-jOV" secondAttribute="bottom" id="l79-DB-HBr"/>
+                            <constraint firstItem="yBz-JY-bbj" firstAttribute="top" secondItem="bQZ-a3-Jkq" secondAttribute="bottom" constant="8" symbolic="YES" id="p11-6n-I0F"/>
+                            <constraint firstItem="yBz-JY-bbj" firstAttribute="centerX" secondItem="QDB-SZ-9ao" secondAttribute="centerX" id="pGB-1I-7xV"/>
+                            <constraint firstItem="Khy-Z7-jOV" firstAttribute="top" secondItem="FPA-cS-WFl" secondAttribute="bottom" constant="8" symbolic="YES" id="xFZ-dh-RR9"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Multiple Choice Create" id="bMP-y6-Sri"/>
+                    <navigationItem key="navigationItem" title="Multiple Choice" id="bMP-y6-Sri"/>
                     <connections>
                         <outlet property="myTableView" destination="M5N-xs-tbb" id="Ihc-eh-nDo"/>
                         <outlet property="questionText" destination="FPA-cS-WFl" id="0yW-hU-TSW"/>
