@@ -8,8 +8,9 @@
 
 import UIKit
 
-class MultipleChoiceCreateController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MultipleChoiceCreateController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
 
+    @IBOutlet weak var questionTextField: UITextField!
     @IBOutlet weak var questionText: UITextField!
     @IBOutlet weak var myTableView: UITableView!
     var questions = [String]()
@@ -18,7 +19,9 @@ class MultipleChoiceCreateController: UIViewController, UITableViewDataSource, U
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.questionTextField.delegate = self
         questions = ["test", "test1", "test2"]
+        
         // Do any additional setup after loading the view.
     }
 
@@ -29,9 +32,15 @@ class MultipleChoiceCreateController: UIViewController, UITableViewDataSource, U
     
     @IBAction func addButton(sender: AnyObject) {
         
+        if( "" == questionText.text){
+            return
+        }
+        
         questions.append(questionText.text)
         
         myTableView.reloadData()
+        
+        self.questionTextField.text = ""
         
     }
     
@@ -62,6 +71,20 @@ class MultipleChoiceCreateController: UIViewController, UITableViewDataSource, U
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return questions.count
     }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        questions.append(questionText.text)
+        
+        textField.resignFirstResponder()
+        
+        myTableView.reloadData()
+        
+        self.questionTextField.text = ""
+        
+        return true
+    }
+    
+    
 
     /*
     // MARK: - Navigation
