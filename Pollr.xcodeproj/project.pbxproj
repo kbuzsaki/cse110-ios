@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09A8D92B1B130E0800D20670 /* MultipleChoiceCreateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A8D92A1B130E0800D20670 /* MultipleChoiceCreateController.swift */; };
 		3026E7341B097BED00BC811A /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3026E72E1B097BED00BC811A /* Group.swift */; };
 		3026E7351B097BED00BC811A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3026E72F1B097BED00BC811A /* Model.swift */; };
 		3026E7361B097BED00BC811A /* Poll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3026E7301B097BED00BC811A /* Poll.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		09A8D92A1B130E0800D20670 /* MultipleChoiceCreateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleChoiceCreateController.swift; sourceTree = "<group>"; };
 		3026E72E1B097BED00BC811A /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Group.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3026E72F1B097BED00BC811A /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Model.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3026E7301B097BED00BC811A /* Poll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Poll.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -105,6 +107,7 @@
 				ACE6AA651AF4A1A400D3F47A /* QuestionSelectorViewController.swift */,
 				AC7A5C6E1B0ADA570079A29F /* HomeViewController.swift */,
 				AC7A5C701B0AF1C10079A29F /* GroupTableViewCell.swift */,
+				09A8D92A1B130E0800D20670 /* MultipleChoiceCreateController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				3026E7381B097BED00BC811A /* Response.swift in Sources */,
 				3026E7351B097BED00BC811A /* Model.swift in Sources */,
 				AC7E51221AF4550E000B4C18 /* AppDelegate.swift in Sources */,
+				09A8D92B1B130E0800D20670 /* MultipleChoiceCreateController.swift in Sources */,
 				AC7A5C711B0AF1C10079A29F /* GroupTableViewCell.swift in Sources */,
 				ACE6AA661AF4A1A400D3F47A /* QuestionSelectorViewController.swift in Sources */,
 				3026E7391B097BED00BC811A /* User.swift in Sources */,

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ezt-KF-5HO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ezt-KF-5HO">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -144,7 +144,7 @@
                     <navigationItem key="navigationItem" title="Create Poll" id="nse-UF-o8V"/>
                     <connections>
                         <outlet property="myTableView" destination="LN3-b6-uJZ" id="mNs-lf-bTT"/>
-                        <segue destination="T5E-HH-zNZ" kind="show" identifier="Multiple Choice" id="PFh-hZ-vh8"/>
+                        <segue destination="Z3o-Yd-Rhi" kind="show" identifier="Multiple Choice" id="PFh-hZ-vh8"/>
                         <segue destination="G16-mv-5WF" kind="show" identifier="Rank Preference" id="mSa-DP-VWn"/>
                         <segue destination="bwo-DY-SIF" kind="show" identifier="Schedule Integration" id="Rra-vJ-9ik"/>
                     </connections>
@@ -205,10 +205,10 @@
             </objects>
             <point key="canvasLocation" x="2719" y="1238"/>
         </scene>
-        <!--View Controller-->
+        <!--Multiple Choice Create-->
         <scene sceneID="5QB-dd-ae7">
             <objects>
-                <viewController id="T5E-HH-zNZ" sceneMemberID="viewController">
+                <viewController id="T5E-HH-zNZ" customClass="MultipleChoiceCreateController" customModule="Pollr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bQZ-a3-Jkq"/>
                         <viewControllerLayoutGuide type="bottom" id="gEH-Ih-UzP"/>
@@ -217,19 +217,72 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MC" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iO7-SO-PLg">
-                                <rect key="frame" x="66" y="332" width="28" height="21"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FPA-cS-WFl">
+                                <rect key="frame" x="31" y="107" width="301" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="301" id="LRw-ij-gI5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Add a Question" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBz-JY-bbj">
+                                <rect key="frame" x="31" y="72" width="120" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="5uA-v0-KUd"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="M5N-xs-tbb">
+                                <rect key="frame" x="0.0" y="155" width="600" height="445"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.94999999999999996" height="1"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="xQA-Le-itT">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xQA-Le-itT" id="DX9-4f-p1H">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="T5E-HH-zNZ" id="Rwf-E8-ucS"/>
+                                    <outlet property="delegate" destination="T5E-HH-zNZ" id="oMP-lj-rDP"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Khy-Z7-jOV">
+                                <rect key="frame" x="185" y="69" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addButton:" destination="T5E-HH-zNZ" eventType="touchUpInside" id="wZR-4m-2fR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="M5N-xs-tbb" firstAttribute="leading" secondItem="QDB-SZ-9ao" secondAttribute="leading" id="2Ym-Tk-BTc"/>
+                            <constraint firstItem="yBz-JY-bbj" firstAttribute="top" secondItem="bQZ-a3-Jkq" secondAttribute="bottom" constant="14" id="3XR-mO-bOr"/>
+                            <constraint firstItem="M5N-xs-tbb" firstAttribute="top" secondItem="FPA-cS-WFl" secondAttribute="bottom" constant="18" id="5KD-eq-tPt"/>
+                            <constraint firstItem="FPA-cS-WFl" firstAttribute="leading" secondItem="yBz-JY-bbj" secondAttribute="leading" id="WCM-Wt-5Zq"/>
+                            <constraint firstItem="M5N-xs-tbb" firstAttribute="bottom" secondItem="gEH-Ih-UzP" secondAttribute="top" id="WpA-EP-K9L"/>
+                            <constraint firstItem="FPA-cS-WFl" firstAttribute="top" secondItem="yBz-JY-bbj" secondAttribute="bottom" constant="8" symbolic="YES" id="X9n-HP-SEi"/>
+                            <constraint firstItem="yBz-JY-bbj" firstAttribute="leading" secondItem="QDB-SZ-9ao" secondAttribute="leadingMargin" constant="15" id="YoO-mO-UGG"/>
+                            <constraint firstAttribute="trailing" secondItem="M5N-xs-tbb" secondAttribute="trailing" id="m0g-xe-EJy"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Multiple Choice Create" id="bMP-y6-Sri"/>
+                    <connections>
+                        <outlet property="myTableView" destination="M5N-xs-tbb" id="Ihc-eh-nDo"/>
+                        <outlet property="questionText" destination="FPA-cS-WFl" id="0yW-hU-TSW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="shg-AZ-Bzo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3565" y="255"/>
+            <point key="canvasLocation" x="4377" y="255"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="a3C-PG-dmW">
@@ -248,6 +301,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SJz-Es-Qb5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1757" y="191"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="VXC-0o-1Z8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Z3o-Yd-Rhi" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LAa-nf-B1a">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="T5E-HH-zNZ" kind="relationship" relationship="rootViewController" id="bsO-e3-5IS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qf3-Jp-9LG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3565" y="255"/>
         </scene>
     </scenes>
 </document>
