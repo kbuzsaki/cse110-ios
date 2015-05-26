@@ -37,7 +37,7 @@ class RestRouter {
         return URL_BASE + "/response/\(id)"
     }
     
-    static func methodName(id: Int) -> String {
+    static func getSimple(id: Int) -> String {
         return URL_BASE + "/simple/\(id)"
     }
     
