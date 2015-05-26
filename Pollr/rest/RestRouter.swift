@@ -37,6 +37,10 @@ class RestRouter {
         return URL_BASE + "/response/\(id)"
     }
     
+    static func methodName(id: Int) -> String {
+        return URL_BASE + "/simple/\(id)"
+    }
+    
     
     //POST
     static func postPoll() -> String {
