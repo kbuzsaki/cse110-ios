@@ -84,30 +84,48 @@ class Poll: Model {
         return plist
     }
     
-//    func postPoll() -> NSError? {
-//        var plist = [NSObject: AnyObject]()
-//        var pollObject = [NSObject: AnyObject]()
-//        plist["post"] = pollObject
-//        
-//        // If group is not specified, a new group will be created.
-//        if let groupid = group?.id {
-//            pollObject["group"] = groupid
-//        }
-//        
-//        if let id = id,
-//                let creatorid = creator?.id,
-//                let name = name,
-//                let created = created,
-//                let questions = questions {
-//            pollObject["id"] = id
-//            pollObject["creator"] = creatorid
-//            pollObject["created"] = created
-//            pollObject["questions"] = questions
-//        }
-//        
-//        var client = RestClient()
-//        var (error, plist) = client.post(RestRouter.postPoll(id), plist)
-//    }
+    func postPoll() -> NSError? {
+        var plist = [NSObject: AnyObject]()
+        var pollObject = [NSObject: AnyObject]()
+        plist["post"] = pollObject
+        
+        // If group is not specified, a new group will be created.
+        if let groupid = group?.id {
+            pollObject["group"] = groupid
+        }
+        
+        if let id = id,
+                let creatorid = creator?.id,
+                let name = name,
+                let created = created,
+                let questions = questions {
+            pollObject["id"] = id
+            pollObject["creator"] = creatorid
+            pollObject["created"] = created
+            
+            if questions.count > 0 {
+                pollObject["questions"] = questions.map {
+                    (var question) -> [NSObject: AnyObject] in
+                    if let question = question as? ChoiceQuestion {
+                        return question.toPropertyList()
+                    } else if let question = question as? RankQuestion {
+                        return question.toPropertyList()
+                    }
+                    return [NSObject: AnyObject]() // Shouldn't reach this case.
+                }
+            }
+        }
+        
+        var client = RestClient()
+        var (error, returnData) = client.post(RestRouter.postPoll(), data: plist)
+        
+        if let error = error {
+            return error
+        } else if let data = returnData {
+            updateFrom(propertyList: data)
+        }
+        return nil
+    }
     
     func inflate() -> NSError? {
         if !inflated, let id = id  {
