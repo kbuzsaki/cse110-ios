@@ -30,14 +30,14 @@ class MCViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(textCellIdentifier, forIndexPath: indexPath) as! MCOptionTableViewCell
-        cell.option = question?.options[indexPath.row]
+        cell.option = question?.options?[indexPath.row]
         println("Cell Option = \(cell.option)")
         return cell
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return question!.options.count
+        question?.inflate()
+        return question!.options!.count
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -50,7 +50,7 @@ class MCViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         
-        for var index = 0; index < question!.options.count; ++index {
+        for var index = 0; index < question!.options!.count; ++index {
             
             if index != indexPath.row {
                 println("here")

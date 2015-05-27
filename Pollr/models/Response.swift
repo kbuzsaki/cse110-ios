@@ -21,7 +21,7 @@ class Response: Model {
     }
     
     private init(id: Int) {
-        self.id! = id
+        self.id = id
     }
     
     private init(propertyList plist: [NSObject: AnyObject]) {
