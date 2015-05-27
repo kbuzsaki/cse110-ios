@@ -84,9 +84,27 @@ class Poll: Model {
         return plist
     }
     
-//    func createPoll() -> NSError? {
-//        client
-//    }
+    func postPoll() -> NSError? {
+        var plist = [NSObject: AnyObject]()
+        var pollObject = [NSObject: AnyObject]()
+        plist["post"] = pollObject
+        
+        // If group is not specified, a new group will be created.
+        if let groupid = group?.id {
+            pollObject["group"] = groupid
+        }
+        
+        if let id = id,
+                let creatorid = creator?.id,
+                let name = name,
+                let created = {
+            pollObject["id"] = id
+
+        if let creator = creator        { pollObject["creator"] = creator }
+        if let name = name              { pollObject["name"] = name }
+        if let created = created        { pollObject["created"] = created }
+        if let questions = questions    { pollObject["questions"] = questions.map { $0.toPropertyList() } }
+    }
     
     func inflate() -> NSError? {
         if !inflated, let id = id  {
