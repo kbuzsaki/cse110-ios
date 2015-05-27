@@ -48,7 +48,7 @@ class Response: Model {
             return response
         }
     }
-    
+
     /* Constructor from property list, checks cache. */
     class func initFrom(propertyList plist: [NSObject: AnyObject]) -> Response {
         if let id = plist["id"] as? Int {
@@ -74,6 +74,10 @@ class Response: Model {
         if let questionid = question?.id            { plist["question"] = questionid }
         if let choices = choices                    { plist["choices"] = choices }
         return plist
+    }
+    
+    func postResponse() -> NSError? {
+        return nil
     }
     
     func inflate() -> NSError? {
