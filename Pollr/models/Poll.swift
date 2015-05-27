@@ -97,13 +97,16 @@ class Poll: Model {
 //        if let id = id,
 //                let creatorid = creator?.id,
 //                let name = name,
-//                let created = {
+//                let created = created,
+//                let questions = questions {
 //            pollObject["id"] = id
-//
-//        if let creator = creator        { pollObject["creator"] = creator }
-//        if let name = name              { pollObject["name"] = name }
-//        if let created = created        { pollObject["created"] = created }
-//        if let questions = questions    { pollObject["questions"] = questions.map { $0.toPropertyList() } }
+//            pollObject["creator"] = creatorid
+//            pollObject["created"] = created
+//            pollObject["questions"] = questions
+//        }
+//        
+//        var client = RestClient()
+//        var (error, plist) = client.post(RestRouter.postPoll(id), plist)
 //    }
     
     func inflate() -> NSError? {
