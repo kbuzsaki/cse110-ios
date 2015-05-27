@@ -30,7 +30,7 @@ class RestRouter {
     }
     
     static func getQuestion(id: Int) -> String {
-        return URL_BASE + "/question\(id)";
+        return URL_BASE + "/question/\(id)";
     }
     
     static func getResponse(id: Int) -> String {
