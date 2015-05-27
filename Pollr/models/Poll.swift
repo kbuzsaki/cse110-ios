@@ -114,15 +114,15 @@ class Poll: Model {
                     return [NSObject: AnyObject]() // Shouldn't reach this case.
                 }
             }
-        }
-        
-        var client = RestClient()
-        var (error, returnData) = client.post(RestRouter.postPoll(), data: plist)
-        
-        if let error = error {
-            return error
-        } else if let data = returnData {
-            updateFrom(propertyList: data)
+                    
+            var client = RestClient()
+            var (error, returnData) = client.post(RestRouter.postPoll(), data: plist)
+            
+            if let error = error {
+                return error
+            } else if let data = returnData {
+                updateFrom(propertyList: data)
+            }
         }
         return nil
     }

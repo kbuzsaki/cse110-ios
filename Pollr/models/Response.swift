@@ -13,7 +13,7 @@ class Response: Model {
     private static var CACHE = [Int: Response]()
     
     var id: Int?
-    var user: User?
+    var responder: User?
     var question: Question?
     var choices: [String]?
 
@@ -62,21 +62,42 @@ class Response: Model {
     
     func updateFrom(propertyList plist: [NSObject: AnyObject]) {
         id = plist["id"] as? Int ?? id
-        user = plist["user"] != nil ? User.initFrom(plist["user"]!) : user
+        responder = plist["user"] != nil ? User.initFrom(plist["user"]!) : responder
         question = plist["question"] != nil ? Question.initFrom(plist["question"]!) : question
         choices = plist["choices"] as? [String] ?? choices
     }
     
     func toPropertyList() -> [NSObject: AnyObject] {
         var plist = [NSObject: AnyObject]()
-        if let id = id { plist["id"] = id }
-        if let userid = user?.id { plist["user"] = userid }
+        if let id = id                              { plist["id"] = id }
+        if let responderid = responder?.id               { plist["responder"] = responderid }
         if let questionid = question?.id            { plist["question"] = questionid }
         if let choices = choices                    { plist["choices"] = choices }
         return plist
     }
     
-    func postResponse() -> NSError? {
+    func putResponse() -> NSError? {
+        if let responderId = responder?.id,
+                let questionId = question?.id,
+                let choices = choices {
+            var plist = [NSObject: AnyObject]()
+            var responseObject = [NSObject: AnyObject]()
+            plist["response"] = responseObject
+            
+            responseObject["responder"] = responderId
+            responseObject["question"] = questionId
+            responseObject["choices"] = choices
+    
+            var client = RestClient()
+            var (error, returnData) = client.post(RestRouter.putResponse(questionId: questionId), data: plist)
+            
+            if let error = error {
+                return error
+            } else if let data = returnData {
+                updateFrom(propertyList: data)
+            }
+        }
+        
         return nil
     }
     
