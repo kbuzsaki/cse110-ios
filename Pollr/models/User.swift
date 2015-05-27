@@ -29,7 +29,7 @@ class User: Model {
     }
     
     /* Smart constructor for id or propertylist, checks cache. */
-    static func initFrom(object: AnyObject) -> User {
+    class func initFrom(object: AnyObject) -> User {
         if let id = object as? Int {
             return initFrom(id)
         } else if let plist = object as? [NSObject: AnyObject] {
@@ -39,7 +39,7 @@ class User: Model {
     }
     
     /* Constructor from id, checks cache. */
-    static func initFrom(id: Int) -> User {
+    class func initFrom(id: Int) -> User {
         if let user = CACHE[id] {
             return user
         } else {
@@ -50,7 +50,7 @@ class User: Model {
     }
     
     /* Constructor from property list, checks cache. */
-    static func initFrom(propertyList plist: [NSObject: AnyObject]) -> User {
+    class func initFrom(propertyList plist: [NSObject: AnyObject]) -> User {
         if let id = plist["id"] as? Int {
             var user = initFrom(id)
             user.updateFrom(propertyList: plist)

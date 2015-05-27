@@ -13,8 +13,9 @@ class Response: Model {
     private static var CACHE = [Int: Response]()
     
     var id: Int?
+    var user: User?
     
-    private init() {
+    init() {
     }
     
     private init(id: Int) {
@@ -26,7 +27,7 @@ class Response: Model {
     }
     
     /* Smart constructor for id or propertylist, checks cache. */
-    static func initFrom(object: AnyObject) -> Response {
+    class func initFrom(object: AnyObject) -> Response {
         if let id = object as? Int {
             return initFrom(id)
         } else if let plist = object as? [NSObject: AnyObject] {
@@ -36,7 +37,7 @@ class Response: Model {
     }
     
     /* Constructor from id, checks cache. */
-    static func initFrom(id: Int) -> Response {
+    class func initFrom(id: Int) -> Response {
         if let response = CACHE[id] {
             return response
         } else {
@@ -47,7 +48,7 @@ class Response: Model {
     }
     
     /* Constructor from property list, checks cache. */
-    static func initFrom(propertyList plist: [NSObject: AnyObject]) -> Response {
+    class func initFrom(propertyList plist: [NSObject: AnyObject]) -> Response {
         if let id = plist["id"] as? Int {
             var response = initFrom(id)
             response.updateFrom(propertyList: plist)
@@ -59,11 +60,13 @@ class Response: Model {
     
     func updateFrom(propertyList plist: [NSObject: AnyObject]) {
         id = plist["id"] as? Int ?? id
+        user = plist["user"] != nil ? User.initFrom(plist["user"]!) : user
     }
     
     func toPropertyList() -> [NSObject: AnyObject] {
         var plist = [NSObject: AnyObject]()
         if let id = id { plist["id"] = id }
+        if let userid = user?.id { plist["user"] = userid }
         return plist
     }
     

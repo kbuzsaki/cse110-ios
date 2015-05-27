@@ -37,7 +37,6 @@ class RestRouter {
         return URL_BASE + "/response/\(id)"
     }
     
-    
     //POST
     static func postPoll() -> String {
         return URL_BASE + "/poll/create/"
