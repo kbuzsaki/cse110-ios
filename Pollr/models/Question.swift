@@ -30,6 +30,9 @@ class Question: Model {
     
     /* Smart constructor for id or propertylist, checks cache. */
     class func initFrom(object: AnyObject) -> Question {
+        if let choiceQuestionObject = object as? ChoiceQuestion {
+            return ChoiceQuestion.initFrom(choiceQuestionObject)
+        }
         if let id = object as? Int {
             return initFrom(id)
         } else if let plist = object as? [NSObject: AnyObject] {
