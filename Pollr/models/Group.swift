@@ -8,6 +8,12 @@
 
 import Foundation
 
+extension Array {
+    static func compact(array: [T?]) -> [T] {
+        return array.filter { $0 != nil }.map{ $0! }
+    }
+}
+
 class Group: Model {
     private(set) var inflated: Bool = false
     private static var CACHE = [Int: Group]()
@@ -30,7 +36,7 @@ class Group: Model {
     }
     
     /* Smart constructor for id or propertylist, checks cache. */
-    static func initFrom(object: AnyObject) -> Group {
+    class func initFrom(object: AnyObject) -> Group {
         if let id = object as? Int {
             return initFrom(id)
         } else if let plist = object as? [NSObject: AnyObject] {
@@ -40,7 +46,7 @@ class Group: Model {
     }
     
     /* Constructor from id, checks cache. */
-    static func initFrom(id: Int) -> Group {
+    class func initFrom(id: Int) -> Group {
         if let group = CACHE[id] {
             return group
         } else {
@@ -51,7 +57,7 @@ class Group: Model {
     }
     
     /* Constructor from property list, checks cache. */
-    static func initFrom(propertyList plist: [NSObject: AnyObject]) -> Group {
+    class func initFrom(propertyList plist: [NSObject: AnyObject]) -> Group {
         if let id = plist["id"] as? Int {
             var group = initFrom(id)
             group.updateFrom(propertyList: plist)
@@ -73,7 +79,7 @@ class Group: Model {
         var plist = [NSObject: AnyObject]()
         if let id = id              { plist["id"] = id }
         if let name = name          { plist["name"] = name }
-        if let members = members    { plist["members"] = members.map { $0.toPropertyList() } }
+        if let members = members    { plist["members"] = Array.compact(members.map { $0.id }) }
         if let updatedAt = updatedAt{ plist["updatedAt"] = updatedAt }
         if let polls = polls        { plist["polls"] = polls.map { $0.toPropertyList() } }
         return plist
