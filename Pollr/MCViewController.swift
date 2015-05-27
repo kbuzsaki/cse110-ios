@@ -12,14 +12,12 @@ class MCViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
 
     @IBOutlet weak var tableView: UITableView!
     var textCellIdentifier = "QuestionCell"
-    var questions:[Question]?
+    var question:Question?
     @IBOutlet weak var questionTitleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        questions?[0].inflate()
-        println(questions?[0].title)
-        questionTitleLabel.text = questions?[0].title
+        questionTitleLabel.text = question?.title
         self.tableView.dataSource = self
         self.tableView.delegate = self
         // Do any additional setup after loading the view.
@@ -32,14 +30,14 @@ class MCViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(textCellIdentifier, forIndexPath: indexPath) as! MCOptionTableViewCell
-        cell.option = questions![0].options[indexPath.row]
+        cell.option = question?.options[indexPath.row]
         println("Cell Option = \(cell.option)")
         return cell
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return questions![0].options.count
+        return question!.options.count
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -52,7 +50,7 @@ class MCViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         
-        for var index = 0; index < questions![0].options.count; ++index {
+        for var index = 0; index < question!.options.count; ++index {
             
             if index != indexPath.row {
                 println("here")

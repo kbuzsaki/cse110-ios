@@ -45,7 +45,7 @@
                                 <connections>
                                     <outlet property="groupNameLabel" destination="YnC-eL-aaG" id="Pyf-yk-dpR"/>
                                     <outlet property="updatedAtLabel" destination="HMt-P6-hfH" id="CjU-3e-NAb"/>
-                                    <segue destination="yNu-zb-0ZF" kind="show" identifier="ShowPolls" id="kVN-tC-cEO"/>
+                                    <segue destination="iZv-6Y-kdw" kind="show" identifier="ShowQuestions" id="YqU-vI-7b0"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -325,7 +325,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9vj-vo-RE2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5121" y="1238"/>
+            <point key="canvasLocation" x="5933" y="1238"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="7eA-Zi-7Kz">
@@ -351,7 +351,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Jg-GP-rDD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4343" y="1238"/>
+            <point key="canvasLocation" x="5155" y="1238"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="5QB-dd-ae7">
@@ -397,6 +397,74 @@
             </objects>
             <point key="canvasLocation" x="1757" y="191"/>
         </scene>
+        <!--Question List View Controller-->
+        <scene sceneID="Kzf-lu-bIn">
+            <objects>
+                <viewController id="iZv-6Y-kdw" customClass="QuestionListViewController" customModule="Pollr" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mxm-YZ-Jde"/>
+                        <viewControllerLayoutGuide type="bottom" id="jr7-MM-a1g"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8Ti-q7-D2Q">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="93" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Cij-2j-2n6">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="93" id="lwY-aK-9lZ" customClass="QuestionListTableViewCell" customModule="Pollr" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lwY-aK-9lZ" id="3qx-uH-4on">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDt-Qa-wX4">
+                                                    <rect key="frame" x="8" y="11" width="288" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time Stamp" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKg-dW-TQ3">
+                                                    <rect key="frame" x="8" y="63" width="265" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZX-In-gJW">
+                                                    <rect key="frame" x="8" y="36" width="0.0" height="0.0"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="timeStampLabel" destination="eKg-dW-TQ3" id="4X9-e7-xFw"/>
+                                            <outlet property="titleLabel" destination="JDt-Qa-wX4" id="fAb-Jh-AHu"/>
+                                            <segue destination="PWk-a3-bV1" kind="show" identifier="VotingSegue" id="6fB-u7-ywt"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Cij-2j-2n6" firstAttribute="leading" secondItem="8Ti-q7-D2Q" secondAttribute="leading" id="D3r-5J-nPt"/>
+                            <constraint firstItem="Cij-2j-2n6" firstAttribute="top" secondItem="8Ti-q7-D2Q" secondAttribute="top" id="Hf4-QG-Rf9"/>
+                            <constraint firstItem="Cij-2j-2n6" firstAttribute="bottom" secondItem="jr7-MM-a1g" secondAttribute="top" id="U5y-rn-wRN"/>
+                            <constraint firstAttribute="trailing" secondItem="Cij-2j-2n6" secondAttribute="trailing" id="eNz-Tn-T21"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="WVw-bA-Czb"/>
+                    <connections>
+                        <outlet property="tableView" destination="Cij-2j-2n6" id="hrU-mo-vzD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="02p-wH-fmj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1689" y="949"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="hdL-C2-O4z">
             <objects>
@@ -435,7 +503,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="kVN-tC-cEO"/>
-        <segue reference="N5b-iM-Fg7"/>
+        <segue reference="6fB-u7-ywt"/>
     </inferredMetricsTieBreakers>
 </document>

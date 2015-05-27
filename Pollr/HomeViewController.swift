@@ -13,6 +13,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet var tableView: UITableView!
     let textCellIdentifier = "TextCell"
     let pollViewSegueIdentifier = "ShowPolls"
+    let questionSegueIdentifier = "ShowQuestions"
     var id:Int? = 1
     let user = User.initFrom(1)
     
@@ -43,11 +44,20 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == pollViewSegueIdentifier {
-            if let destination = segue.destinationViewController as? ShowPollViewController {
+//        if segue.identifier == pollViewSegueIdentifier {
+//            if let destination = segue.destinationViewController as? ShowPollViewController {
+//                if let row = tableView.indexPathForSelectedRow()?.row {
+//                    var polls = user.groups?[row].polls
+//                    destination.polls = polls
+//                }
+//            }
+//        }
+        
+        if segue.identifier == questionSegueIdentifier {
+            if let destination = segue.destinationViewController as? QuestionListViewController {
                 if let row = tableView.indexPathForSelectedRow()?.row {
-                    var polls = user.groups?[row].polls
-                    destination.polls = polls
+                    var questions = allQuestions(tableView.indexPathForSelectedRow()!)
+                    destination.questions = questions
                 }
             }
         }
@@ -57,4 +67,25 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
+    func allQuestions(indexPath:NSIndexPath) -> [Question]{
+        var q = [Question]()
+        self.user.inflate()
+        
+        
+        //inflate the selected group
+        //load up the selected groups polls
+        //load all the questions from the selected groups polls
+        
+        user.groups![indexPath.row].inflate()
+        var polls = user.groups![indexPath.row].polls
+        for var i = 0; i < polls!.count; i++ {
+            polls![i].inflate()
+            for var j = 0; j < polls![i].questions!.count; j++ {
+                q.append(polls![i].questions![j])
+                println(q.last!.title!)
+            }
+        }
+        
+        return q
+    }
 }

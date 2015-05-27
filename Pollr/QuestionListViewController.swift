@@ -1,24 +1,23 @@
 //
-//  ShowPollViewController.swift
+//  QuestionListViewController.swift
 //  Pollr
 //
-//  Created by Kabir Gogia on 5/22/15.
+//  Created by Kabir Gogia on 5/26/15.
 //  Copyright (c) 2015 Kabir. All rights reserved.
 //
 
 import UIKit
 
-class ShowPollViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
+class QuestionListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
-    var textCellIdentifier = "PollCell"
+    var questions:[Question]?
     var segueIdentifier = "VotingSegue"
-    var polls:[Poll]?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.dataSource = self
         self.tableView.delegate = self
+        self.tableView.dataSource = self
         // Do any additional setup after loading the view.
     }
 
@@ -27,31 +26,28 @@ class ShowPollViewController: UIViewController, UITableViewDataSource, UITableVi
         // Dispose of any resources that can be recreated.
     }
     
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell = self.tableView.dequeueReusableCellWithIdentifier("cell") as! QuestionListTableViewCell
+        
+        cell.question = questions?[indexPath.row]
+        
+        return cell
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return questions?.count ?? 1
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return polls!.count
+        return 1
     }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(textCellIdentifier, forIndexPath: indexPath) as! PollTableViewCell
-        
-        polls?[indexPath.row].inflate()
-        cell.poll = polls?[indexPath.row]
-        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-        return cell
-        
-    }
-    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == segueIdentifier {
             if let destination = segue.destinationViewController as? MCViewController {
                 if let row = tableView.indexPathForSelectedRow()?.row {
-//                    var questions = polls?[row].questions
-//                    destination.questions = questions
+                    var q = questions?[row]
+                    destination.question = q
                 }
             }
         }
