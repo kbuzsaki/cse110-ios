@@ -14,7 +14,7 @@
 		3026E7381B097BED00BC811A /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3026E7321B097BED00BC811A /* Response.swift */; };
 		3026E7391B097BED00BC811A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3026E7331B097BED00BC811A /* User.swift */; };
 		3067328D1B15416E00D48A44 /* ChoiceQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3067328C1B15416E00D48A44 /* ChoiceQuestion.swift */; };
-		3067328F1B1541BA00D48A44 /* ChoiceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3067328E1B1541BA00D48A44 /* ChoiceResponse.swift */; };
+		309643BD1B15B14300EBAA1B /* RankQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309643BC1B15B14300EBAA1B /* RankQuestion.swift */; };
 		30D123691B0980280031D055 /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D123671B0980280031D055 /* RestClient.swift */; };
 		30D1236A1B0980280031D055 /* RestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D123681B0980280031D055 /* RestRouter.swift */; };
 		AC59D0581B1009AA00024E57 /* ShowPollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC59D0571B1009AA00024E57 /* ShowPollViewController.swift */; };
@@ -49,7 +49,7 @@
 		3026E7321B097BED00BC811A /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Response.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3026E7331B097BED00BC811A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3067328C1B15416E00D48A44 /* ChoiceQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoiceQuestion.swift; sourceTree = "<group>"; };
-		3067328E1B1541BA00D48A44 /* ChoiceResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoiceResponse.swift; sourceTree = "<group>"; };
+		309643BC1B15B14300EBAA1B /* RankQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankQuestion.swift; sourceTree = "<group>"; };
 		30D123671B0980280031D055 /* RestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestClient.swift; sourceTree = "<group>"; };
 		30D123681B0980280031D055 /* RestRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestRouter.swift; sourceTree = "<group>"; };
 		AC59D0571B1009AA00024E57 /* ShowPollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowPollViewController.swift; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 				3026E7301B097BED00BC811A /* Poll.swift */,
 				3026E7311B097BED00BC811A /* Question.swift */,
 				3067328C1B15416E00D48A44 /* ChoiceQuestion.swift */,
-				3067328E1B1541BA00D48A44 /* ChoiceResponse.swift */,
+				309643BC1B15B14300EBAA1B /* RankQuestion.swift */,
 				3026E7321B097BED00BC811A /* Response.swift */,
 				3026E7331B097BED00BC811A /* User.swift */,
 			);
@@ -295,7 +295,7 @@
 				3026E7391B097BED00BC811A /* User.swift in Sources */,
 				3067328D1B15416E00D48A44 /* ChoiceQuestion.swift in Sources */,
 				3026E7361B097BED00BC811A /* Poll.swift in Sources */,
-				3067328F1B1541BA00D48A44 /* ChoiceResponse.swift in Sources */,
+				309643BD1B15B14300EBAA1B /* RankQuestion.swift in Sources */,
 				30D1236A1B0980280031D055 /* RestRouter.swift in Sources */,
 				AC76F63B1B108EEF000EEBCA /* MCViewController.swift in Sources */,
 				AC7A5C6F1B0ADA570079A29F /* HomeViewController.swift in Sources */,
