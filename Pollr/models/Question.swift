@@ -16,9 +16,8 @@ class Question: Model {
     var poll: Poll?
     var title: String?
     var type: String?
-    var responses: [Response]?
     
-    private init() {
+    init() {
     }
     
     private init(id: Int) {
@@ -30,17 +29,17 @@ class Question: Model {
     }
     
     /* Smart constructor for id or propertylist, checks cache. */
-    static func initFrom(object: AnyObject) -> Question {
+    class func initFrom(object: AnyObject) -> Question {
         if let id = object as? Int {
             return initFrom(id)
         } else if let plist = object as? [NSObject: AnyObject] {
-            return initFrom(plist)
+            return initFrom(propertyList: plist)
         }
         return Question()
     }
     
     /* Constructor from id, checks cache. */
-    static func initFrom(id: Int) -> Question {
+    class func initFrom(id: Int) -> Question {
         if let question = CACHE[id] {
             return question
         } else {
@@ -51,7 +50,7 @@ class Question: Model {
     }
     
     /* Constructor from property list, checks cache. */
-    static func initFrom(propertyList plist: [NSObject: AnyObject]) -> Question {
+    class func initFrom(propertyList plist: [NSObject: AnyObject]) -> Question {
         if let id = plist["id"] as? Int {
             var question = initFrom(id)
             question.updateFrom(propertyList: plist)
@@ -66,16 +65,14 @@ class Question: Model {
         poll = plist["poll"] != nil ? Poll.initFrom(plist["poll"]!) : poll
         title = plist["title"] as? String ?? title
         type = plist["type"] as? String ?? type
-        responses = (plist["responses"] as? [AnyObject])?.map { Response.initFrom($0) } ?? responses
     }
     
     func toPropertyList() -> [NSObject: AnyObject] {
         var plist = [NSObject: AnyObject]()
         if let id = id                  { plist["id"] = id }
-        if let poll = poll              { plist["poll"] = poll.toPropertyList() }
+        if let pollid = poll?.id        { plist["poll"] = pollid }
         if let title = title            { plist["title"] = title }
         if let type = type              { plist["type"] = type }
-        if let responses = responses    { plist["responses"] = responses.map { $0.toPropertyList() } }
         return plist
     }
     

@@ -13,14 +13,24 @@ class MultipleChoiceCreateController: UIViewController, UITableViewDataSource, U
     @IBOutlet weak var questionTextField: UITextField!
     @IBOutlet weak var questionText: UITextField!
     @IBOutlet weak var myTableView: UITableView!
-    var questions = [String]()
+    
+    
+    var options = [String]()
     var newQuestion: String = ""
+    
+    //ChoiceQuestion.initFrom ({
+    //  "type" : "choice / rank / schedule"
+    //   "options": options,
+    //    "allow_multiple": allow_multiple,
+    //    "allow_custom": allow_custon,
+    //})
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.questionTextField.delegate = self
-        questions = ["test", "test1", "test2"]
+        options = ["test", "test1", "test2"]
         
         // Do any additional setup after loading the view.
     }
@@ -36,7 +46,7 @@ class MultipleChoiceCreateController: UIViewController, UITableViewDataSource, U
             return
         }
         
-        questions.append(questionText.text)
+        options.append(questionText.text)
         
         myTableView.reloadData()
         
@@ -48,7 +58,7 @@ class MultipleChoiceCreateController: UIViewController, UITableViewDataSource, U
         
         if (editingStyle == UITableViewCellEditingStyle.Delete){
         
-            questions.removeAtIndex(indexPath.row)
+            options.removeAtIndex(indexPath.row)
             
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         }
@@ -58,7 +68,7 @@ class MultipleChoiceCreateController: UIViewController, UITableViewDataSource, U
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
         
-        cell.textLabel!.text = questions[indexPath.row]
+        cell.textLabel!.text = options[indexPath.row]
         
         return cell
         
@@ -69,11 +79,11 @@ class MultipleChoiceCreateController: UIViewController, UITableViewDataSource, U
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return questions.count
+        return options.count
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        questions.append(questionText.text)
+        options.append(questionText.text)
         
         textField.resignFirstResponder()
         
