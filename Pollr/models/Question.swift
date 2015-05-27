@@ -90,6 +90,13 @@ class Question: Model {
             var client = RestClient()
             var (error, plist) = client.get(RestRouter.getQuestion(id))
             
+            // Flatten the content
+            if let content = plist?["content"] as? [NSObject: AnyObject] {
+                for (key, value) in content {
+                    plist?[key] = value
+                }
+            }
+            
             if let error = error {
                 return error
             }
