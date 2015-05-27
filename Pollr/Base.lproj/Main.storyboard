@@ -45,7 +45,7 @@
                                 <connections>
                                     <outlet property="groupNameLabel" destination="YnC-eL-aaG" id="Pyf-yk-dpR"/>
                                     <outlet property="updatedAtLabel" destination="HMt-P6-hfH" id="CjU-3e-NAb"/>
-                                    <segue destination="iZv-6Y-kdw" kind="show" identifier="ShowQuestions" id="YqU-vI-7b0"/>
+                                    <segue destination="yNu-zb-0ZF" kind="show" identifier="ShowPolls" id="kVN-tC-cEO"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
