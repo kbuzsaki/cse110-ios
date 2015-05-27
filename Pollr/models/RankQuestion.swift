@@ -1,5 +1,5 @@
 //
-//  ChoiceQuestion.swift
+//  RankQuestion.swift
 //  Pollr
 //
 //  Created by Ran Tao on 5/26/15.
@@ -8,11 +8,8 @@
 
 import Foundation
 
-class ChoiceQuestion: Question {
-    private static var CACHE = [Int: ChoiceQuestion]()
-    
-    var allowMultiple = true
-    var allowCustom = true
+class RankQuestion: Question {
+    private static var CACHE = [Int: RankQuestion]()
     
     override init() {
     }
@@ -28,46 +25,42 @@ class ChoiceQuestion: Question {
     }
     
     /* Smart constructor for id or propertylist, checks cache. */
-    override class func initFrom(object: AnyObject) -> ChoiceQuestion {
+    override class func initFrom(object: AnyObject) -> RankQuestion {
         if let id = object as? Int {
             return initFrom(id)
         } else if let plist = object as? [NSObject: AnyObject] {
             return initFrom(propertyList: plist)
         }
-        return ChoiceQuestion()
+        return RankQuestion()
     }
     
     /* Constructor from id, checks cache. */
-    override class func initFrom(id: Int) -> ChoiceQuestion {
+    override class func initFrom(id: Int) -> RankQuestion {
         if let question = CACHE[id] {
             return question
         } else {
-            var question = ChoiceQuestion(id: id)
+            var question = RankQuestion(id: id)
             CACHE[id] = question
             return question
         }
     }
     
     /* Constructor from property list, checks cache. */
-    override class func initFrom(propertyList plist: [NSObject: AnyObject]) -> ChoiceQuestion {
+    override class func initFrom(propertyList plist: [NSObject: AnyObject]) -> RankQuestion {
         if let id = plist["id"] as? Int {
             var question = initFrom(id)
             question.updateFrom(propertyList: plist)
             return question
         } else {
-            return ChoiceQuestion(propertyList: plist)
+            return RankQuestion(propertyList: plist)
         }
     }
     override func updateFrom(propertyList plist: [NSObject: AnyObject]) {
         super.updateFrom(propertyList: plist)
-        allowMultiple = plist["allow_multiple"] as? Bool ?? allowMultiple
-        allowCustom = plist["allow_custom"] as? Bool ?? allowCustom
     }
     
     override func toPropertyList() -> [NSObject: AnyObject] {
         var plist = super.toPropertyList()
-        plist["allowMultiple"] = allowMultiple
-        plist["allowCustom"] = allowCustom
         return plist
     }
 }

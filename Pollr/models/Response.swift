@@ -14,7 +14,9 @@ class Response: Model {
     
     var id: Int?
     var user: User?
-    
+    var question: Question?
+    var choices: [String]?
+
     init() {
     }
     
@@ -61,12 +63,16 @@ class Response: Model {
     func updateFrom(propertyList plist: [NSObject: AnyObject]) {
         id = plist["id"] as? Int ?? id
         user = plist["user"] != nil ? User.initFrom(plist["user"]!) : user
+        question = plist["question"] != nil ? Question.initFrom(plist["question"]!) : question
+        choices = plist["choices"] as? [String] ?? choices
     }
     
     func toPropertyList() -> [NSObject: AnyObject] {
         var plist = [NSObject: AnyObject]()
         if let id = id { plist["id"] = id }
         if let userid = user?.id { plist["user"] = userid }
+        if let questionid = question?.id            { plist["question"] = questionid }
+        if let choices = choices                    { plist["choices"] = choices }
         return plist
     }
     

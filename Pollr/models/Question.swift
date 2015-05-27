@@ -16,6 +16,8 @@ class Question: Model {
     var poll: Poll?
     var title: String?
     var type: String?
+    var options: [String]?
+    var responses: [Response]?
     
     init() {
     }
@@ -30,6 +32,9 @@ class Question: Model {
     
     /* Smart constructor for id or propertylist, checks cache. */
     class func initFrom(object: AnyObject) -> Question {
+        if let choiceQuestionObject = object as? ChoiceQuestion {
+            return ChoiceQuestion.initFrom(choiceQuestionObject)
+        }
         if let id = object as? Int {
             return initFrom(id)
         } else if let plist = object as? [NSObject: AnyObject] {
@@ -65,6 +70,8 @@ class Question: Model {
         poll = plist["poll"] != nil ? Poll.initFrom(plist["poll"]!) : poll
         title = plist["title"] as? String ?? title
         type = plist["type"] as? String ?? type
+        options = plist["options"] as? [String] ?? options
+        responses = (plist["responses"] as? [AnyObject])?.map { Response.initFrom($0) } ?? responses
     }
     
     func toPropertyList() -> [NSObject: AnyObject] {
@@ -73,6 +80,8 @@ class Question: Model {
         if let pollid = poll?.id        { plist["poll"] = pollid }
         if let title = title            { plist["title"] = title }
         if let type = type              { plist["type"] = type }
+        if let options = options        { plist["options"] = options }
+        if let responses = responses    { plist["responses"] = responses.map{ $0.toPropertyList() } }
         return plist
     }
     
