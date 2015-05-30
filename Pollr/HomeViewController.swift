@@ -25,11 +25,17 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let error = user.refresh() {
+        if let error = user.refreshWithGroups() {
             println(error.localizedDescription)
             return 0
         }
-        return user.groups!.count
+        if var groups = user.groups {
+            // Sort the groups by timestamp.
+            groups.sort { (g0, g1) -> Bool in g0.updatedAt!.isLaterThan(g1.updatedAt) }
+            user.groups = groups
+            return groups.count
+        }
+        return 0
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
