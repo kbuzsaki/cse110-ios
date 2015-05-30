@@ -15,7 +15,6 @@ class User: Model {
     var id: Int?
     var createdAt: NSDate?
     var updatedAt: NSDate?
-    var hash: String?
     var name: String?
     var groups: [Group]?
     
@@ -66,7 +65,6 @@ class User: Model {
         id = plist["id"] as? Int ?? id
         updatedAt = NSDate.dateFrom(plist["updatedAt"]) ?? updatedAt
         createdAt = NSDate.dateFrom(plist["createdAt"]) ?? createdAt
-        hash = plist["hash"] as? String ?? hash
         name = plist["name"] as? String ?? name
         groups = (plist["groups"] as? [AnyObject])?.map { Group.initFrom($0) } ?? groups
         setInflatedIfFullyInflated()
@@ -148,7 +146,6 @@ class User: Model {
             id,
             createdAt,
             updatedAt,
-            hash,
             name,
             groups
         ]

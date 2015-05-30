@@ -20,7 +20,6 @@ class Poll: Model {
     var group: Group?
     var name: String?
     var questions: [Question]?
-    var hash: String?
     
     private init() {
     }
@@ -74,7 +73,6 @@ class Poll: Model {
         creator = plist["creator"] != nil ? User.initFrom(plist["creator"]!) : creator
         name = plist["name"] as? String ?? name
         questions = (plist["questions"] as? [AnyObject])?.map { Question.initFrom($0) } ?? questions
-        hash = plist["hash"] as? String ?? hash
         setInflatedIfFullyInflated()
     }
     
