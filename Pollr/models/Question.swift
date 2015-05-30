@@ -13,6 +13,8 @@ class Question: Model {
     private static var CACHE = [Int: Question]()
     
     var id: Int?
+    var createdAt: NSDate?
+    var updatedAt: NSDate?
     var poll: Poll?
     var title: String?
     var type: String?
@@ -67,6 +69,8 @@ class Question: Model {
     
     func updateFrom(propertyList plist: [NSObject: AnyObject]) {
         id = plist["id"] as? Int ?? id
+        updatedAt = NSDate.dateFrom(plist["updatedAt"]) ?? updatedAt
+        createdAt = NSDate.dateFrom(plist["createdAt"]) ?? createdAt
         poll = plist["poll"] != nil ? Poll.initFrom(plist["poll"]!) : poll
         title = plist["title"] as? String ?? title
         type = plist["type"] as? String ?? type

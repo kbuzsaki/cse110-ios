@@ -13,6 +13,8 @@ class Response: Model {
     private static var CACHE = [Int: Response]()
     
     var id: Int?
+    var createdAt: NSDate?
+    var updatedAt: NSDate?
     var responder: User?
     var question: Question?
     var choices: [String]?
@@ -62,6 +64,8 @@ class Response: Model {
     
     func updateFrom(propertyList plist: [NSObject: AnyObject]) {
         id = plist["id"] as? Int ?? id
+        updatedAt = NSDate.dateFrom(plist["updatedAt"]) ?? updatedAt
+        createdAt = NSDate.dateFrom(plist["createdAt"]) ?? createdAt
         responder = plist["user"] != nil ? User.initFrom(plist["user"]!) : responder
         question = plist["question"] != nil ? Question.initFrom(plist["question"]!) : question
         choices = plist["choices"] as? [String] ?? choices

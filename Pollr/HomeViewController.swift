@@ -25,7 +25,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        user.inflate()
+        if let error = user.refresh() {
+            println(error.localizedDescription)
+            return 0
+        }
         return user.groups!.count
     }
 

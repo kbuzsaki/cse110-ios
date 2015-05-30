@@ -13,6 +13,8 @@ class Poll: Model {
     private static var CACHE = [Int: Poll]()
     
     var id: Int?
+    var createdAt: NSDate?
+    var updatedAt: NSDate?
     var creator: User?
     var created: String?
     var last_modified: String?
@@ -66,6 +68,8 @@ class Poll: Model {
     
     func updateFrom(propertyList plist: [NSObject: AnyObject]) {
         id = plist["id"] as? Int ?? id
+        updatedAt = NSDate.dateFrom(plist["updatedAt"]) ?? updatedAt
+        createdAt = NSDate.dateFrom(plist["createdAt"]) ?? createdAt
         group = plist["group"] != nil ? Group.initFrom(plist["group"]!) : group
         creator = plist["creator"] != nil ? User.initFrom(plist["creator"]!) : creator
         name = plist["name"] as? String ?? name
