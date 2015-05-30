@@ -9,6 +9,6 @@
 #ifndef Pollr_Pods_Bridging_Header_h
 #define Pollr_Pods_Bridging_Header_h
 
-#import <DateTools/NSDate+DateTools.h>
+#import <DateTools/DateTools.h>
 
 #endif
