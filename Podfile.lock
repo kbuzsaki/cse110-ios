@@ -1,10 +1,10 @@
 PODS:
-  - NSDate+TimeAgo (1.0.3)
+  - DateTools (1.5.0)
 
 DEPENDENCIES:
-  - NSDate+TimeAgo
+  - DateTools
 
 SPEC CHECKSUMS:
-  NSDate+TimeAgo: 416f55d2696d3744c313091c5a9280d47f8238fe
+  DateTools: b93a2c2017747329c6077c7d7e8a75106e23d0d7
 
 COCOAPODS: 0.36.4

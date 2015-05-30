@@ -2,7 +2,7 @@
 platform :ios, '8.0'
 
 target 'Pollr' do
-    pod 'NSDate+TimeAgo', :inhibit_warnings => true
+    pod 'DateTools', :inhibit_warnings => true
 end
 
 target 'PollrTests' do
