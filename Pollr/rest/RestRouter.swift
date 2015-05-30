@@ -37,13 +37,17 @@ class RestRouter {
         return URL_BASE + "/response/\(id)"
     }
     
+    static func getUserWithGroups(id: Int) -> String {
+        return URL_BASE + "/user/groups/\(id)"
+    }
+    
     //POST
     static func postPoll() -> String {
         return URL_BASE + "/poll/create/"
     }
     
-    static func postResponse() -> String {
-        return URL_BASE + "/response/create"
+    static func putResponse(questionId id: Int) -> String {
+        return URL_BASE + "/question/\(id)/response/create"
     }
     
 }

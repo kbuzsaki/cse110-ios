@@ -13,7 +13,9 @@ class Response: Model {
     private static var CACHE = [Int: Response]()
     
     var id: Int?
-    var user: User?
+    var createdAt: NSDate?
+    var updatedAt: NSDate?
+    var responder: User?
     var question: Question?
     var choices: [String]?
 
@@ -48,7 +50,7 @@ class Response: Model {
             return response
         }
     }
-    
+
     /* Constructor from property list, checks cache. */
     class func initFrom(propertyList plist: [NSObject: AnyObject]) -> Response {
         if let id = plist["id"] as? Int {
@@ -62,18 +64,46 @@ class Response: Model {
     
     func updateFrom(propertyList plist: [NSObject: AnyObject]) {
         id = plist["id"] as? Int ?? id
-        user = plist["user"] != nil ? User.initFrom(plist["user"]!) : user
+        updatedAt = NSDate.dateFrom(plist["updatedAt"]) ?? updatedAt
+        createdAt = NSDate.dateFrom(plist["createdAt"]) ?? createdAt
+        responder = plist["user"] != nil ? User.initFrom(plist["user"]!) : responder
         question = plist["question"] != nil ? Question.initFrom(plist["question"]!) : question
         choices = plist["choices"] as? [String] ?? choices
+        setInflatedIfFullyInflated()
     }
     
     func toPropertyList() -> [NSObject: AnyObject] {
         var plist = [NSObject: AnyObject]()
-        if let id = id { plist["id"] = id }
-        if let userid = user?.id { plist["user"] = userid }
+        if let id = id                              { plist["id"] = id }
+        if let responderid = responder?.id               { plist["responder"] = responderid }
         if let questionid = question?.id            { plist["question"] = questionid }
         if let choices = choices                    { plist["choices"] = choices }
         return plist
+    }
+    
+    func putResponse() -> NSError? {
+        if let responderId = responder?.id,
+                let questionId = question?.id,
+                let choices = choices {
+            var plist = [NSObject: AnyObject]()
+            var responseObject = [NSObject: AnyObject]()
+            plist["response"] = responseObject
+            
+            responseObject["responder"] = responderId
+            responseObject["question"] = questionId
+            responseObject["choices"] = choices
+    
+            var client = RestClient()
+            var (error, returnData) = client.post(RestRouter.putResponse(questionId: questionId), data: plist)
+            
+            if let error = error {
+                return error
+            } else if let data = returnData {
+                updateFrom(propertyList: data)
+            }
+        }
+        
+        return nil
     }
     
     func inflate() -> NSError? {
@@ -87,7 +117,6 @@ class Response: Model {
             
             if let plist = plist {
                 updateFrom(propertyList: plist)
-                inflated = true
             }
         }
         
@@ -97,5 +126,29 @@ class Response: Model {
     func refresh() -> NSError? {
         inflated = false
         return inflate()
+    }
+    
+    func setInflatedIfFullyInflated() -> Bool {
+        inflated = checkFeildsAreInflated()
+        return inflated
+    }
+    
+    func checkFeildsAreInflated() -> Bool {
+        let mandatoryFields: [AnyObject?] = [
+            id,
+            createdAt,
+            updatedAt,
+            responder,
+            question,
+            choices
+        ]
+        var fullyInflated = true
+        for field in mandatoryFields {
+            if field == nil {
+                fullyInflated = false
+                break
+            }
+        }
+        return fullyInflated
     }
 }

@@ -13,7 +13,8 @@ class User: Model {
     private(set) var inflated: Bool = false
     
     var id: Int?
-    var hash: String?
+    var createdAt: NSDate?
+    var updatedAt: NSDate?
     var name: String?
     var groups: [Group]?
     
@@ -62,15 +63,16 @@ class User: Model {
     
     func updateFrom(propertyList plist: [NSObject: AnyObject]) {
         id = plist["id"] as? Int ?? id
-        hash = plist["hash"] as? String ?? hash
+        updatedAt = NSDate.dateFrom(plist["updatedAt"]) ?? updatedAt
+        createdAt = NSDate.dateFrom(plist["createdAt"]) ?? createdAt
         name = plist["name"] as? String ?? name
         groups = (plist["groups"] as? [AnyObject])?.map { Group.initFrom($0) } ?? groups
+        setInflatedIfFullyInflated()
     }
     
     func toPropertyList() -> [NSObject: AnyObject] {
         var plist = [NSObject: AnyObject]()
         if let id = id          { plist["id"] = id }
-        if let hash = hash      { plist["hash"] = hash }
         if let name = name      { plist["name"] = name }
         if let groups = groups  { plist["groups"] = groups.map { $0.toPropertyList() } }
         return plist
@@ -87,7 +89,6 @@ class User: Model {
             
             if let plist = plist {
                 updateFrom(propertyList: plist)
-                inflated = true
             }
         }
         
@@ -97,5 +98,63 @@ class User: Model {
     func refresh() -> NSError? {
         inflated = false
         return inflate()
+    }
+    
+    func inflateWithGroups() -> NSError? {
+        var anyGroupsNotInflated = false
+        if inflated, let groups = groups {
+            for group in groups {
+                anyGroupsNotInflated = group.inflated || anyGroupsNotInflated
+            }
+        }
+        if !inflated, let id = id  {
+            var client = RestClient()
+            var (error, plist) = client.get(RestRouter.getUserWithGroups(id))
+            
+            if let error = error {
+                return error
+            }
+            
+            if let plist = plist {
+                updateFrom(propertyList: plist)
+                inflated = true
+                
+                if let groups = groups {
+                    for group in groups {
+                        group.setInflatedIfFullyInflated()
+                    }
+                }
+            }
+        }
+        
+        return nil
+    }
+    
+    func refreshWithGroups() -> NSError? {
+        inflated = false
+        return inflateWithGroups()
+    }
+    
+    func setInflatedIfFullyInflated() -> Bool {
+        inflated = checkFeildsAreInflated()
+        return inflated
+    }
+    
+    func checkFeildsAreInflated() -> Bool {
+        let mandatoryFields: [AnyObject?] = [
+            id,
+            createdAt,
+            updatedAt,
+            name,
+            groups
+        ]
+        var fullyInflated = true
+        for field in mandatoryFields {
+            if field == nil {
+                fullyInflated = false
+                break
+            }
+        }
+        return fullyInflated
     }
 }

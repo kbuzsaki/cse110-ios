@@ -36,6 +36,22 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return user.groups?.count ?? 0 //user's groups are nil if inflating is not finished
+        if let error = user.refreshWithGroups() {
+            println(error.localizedDescription)
+        }
+        if let groups = user.groups {
+            // Sort the groups by timestamp.
+            user.groups = groups.sorted { (g0, g1) -> Bool in g0.updatedAt!.isLaterThan(g1.updatedAt) }
+        }
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let groups = user.groups {
+            return groups.count
+        } else {
+            println("Error: User has no groups field loaded.")
+            return 0
+        }
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

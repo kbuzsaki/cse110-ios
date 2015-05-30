@@ -22,7 +22,7 @@ class QuestionListTableViewCell: UITableViewCell {
     func updateUI() {
         println(question!.type)
         titleLabel.text = question!.title!
-        timeStampLabel.text = question!.type?.capitalizedString
+        timeStampLabel.text = question?.poll?.createdAt?.timeAgoSinceNow()
     }
 
 }

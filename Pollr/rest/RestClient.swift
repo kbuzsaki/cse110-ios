@@ -32,7 +32,7 @@ class RestClient {
             return (error, nil)
         }
         
-        var retValue = NSJSONSerialization.JSONObjectWithData(urlData, options: nil, error: &error) as? [NSObject: AnyObject]
+        var retValue = NSJSONSerialization.JSONObjectWithData(urlData!, options: nil, error: &error) as? [NSObject: AnyObject]
         
         if let error = error {
             println(error.localizedDescription)
@@ -44,17 +44,17 @@ class RestClient {
     
     
     //MARK: Put
-    func put(route: String, data: [NSObject: AnyObject]) -> NSError? {
+    func put(route: String, data: [NSObject: AnyObject]) -> (NSError?, [NSObject: AnyObject]?) {
          return putOrPost(route, data: data, method: "PUT")
     }
     
     //MARK: Post
-    func post(route: String, data: [NSObject: AnyObject]) -> NSError? {
+    func post(route: String, data: [NSObject: AnyObject]) -> (NSError?, [NSObject: AnyObject]?) {
          return putOrPost(route, data: data, method: "POST")
     }
     
     
-    private func putOrPost(route: String, data: [NSObject: AnyObject], method: String) -> NSError? {
+    private func putOrPost(route: String, data: [NSObject: AnyObject], method: String) -> (NSError?, [NSObject: AnyObject]?) {
         
         let url = NSURL(string: route)!
         var request = NSMutableURLRequest(URL: url)
@@ -66,7 +66,7 @@ class RestClient {
         
         if let error = error {
             println("ERROR: Failed to convert data to JSON: \(error.localizedDescription)")
-            return error
+            return (error, nil)
         }
         
         //prepare request as post and attach json object
@@ -80,10 +80,17 @@ class RestClient {
         
         if let error = error {
             println("ERROR: Could not post: \(error.localizedDescription)")
-            return error
+            return (error, nil)
         }
         
-        return nil
+        var retValue = NSJSONSerialization.JSONObjectWithData(urlData!, options: nil, error: &error) as? [NSObject: AnyObject]
+        
+        if let error = error {
+            println(error.localizedDescription)
+            return (error, nil)
+        }
+        
+        return (error, retValue)
     }
     
     

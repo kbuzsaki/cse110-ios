@@ -30,7 +30,7 @@ class PollTableViewCell: UITableViewCell {
             numQuestions.text?.append(Character("s"))
         }
         
-        timeStamp.text = poll?.last_modified
+        timeStamp.text = poll?.updatedAt?.timeAgoSinceNow()
     }
 }
 

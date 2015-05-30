@@ -19,9 +19,10 @@ class Group: Model {
     private static var CACHE = [Int: Group]()
     
     var id: Int?
+    var createdAt: NSDate?
+    var updatedAt: NSDate?
     var name: String?
     var members: [User]?
-    var updatedAt: String?
     var polls: [Poll]?
     
     private init() {
@@ -69,19 +70,20 @@ class Group: Model {
     
     func updateFrom(propertyList plist: [NSObject: AnyObject]) {
         id = plist["id"] as? Int ?? id
+        updatedAt = NSDate.dateFrom(plist["updatedAt"]) ?? updatedAt
+        createdAt = NSDate.dateFrom(plist["createdAt"]) ?? createdAt
         name = plist["name"] as? String ?? name
         members = (plist["members"] as? [AnyObject])?.map { User.initFrom($0) } ?? members
-        updatedAt = plist["updatedAt"] as? String ?? name
         polls = (plist["polls"] as? [AnyObject])?.map { Poll.initFrom($0) } ?? polls
+        setInflatedIfFullyInflated()
     }
     
     func toPropertyList() -> [NSObject: AnyObject] {
         var plist = [NSObject: AnyObject]()
-        if let id = id              { plist["id"] = id }
-        if let name = name          { plist["name"] = name }
-        if let members = members    { plist["members"] = Array.compact(members.map { $0.id }) }
-        if let updatedAt = updatedAt{ plist["updatedAt"] = updatedAt }
-        if let polls = polls        { plist["polls"] = polls.map { $0.toPropertyList() } }
+        if let id = id                  { plist["id"] = id }
+        if let name = name              { plist["name"] = name }
+        if let members = members        { plist["members"] = Array.compact(members.map { $0.id }) }
+        if let polls = polls            { plist["polls"] = polls.map { $0.toPropertyList() } }
         return plist
     }
 
@@ -97,7 +99,6 @@ class Group: Model {
             
             if let plist = plist {
                 updateFrom(propertyList: plist)
-                inflated = true
             }
         }
         
@@ -107,5 +108,29 @@ class Group: Model {
     func refresh() -> NSError? {
         inflated = false
         return inflate()
+    }
+    
+    func setInflatedIfFullyInflated() -> Bool {
+        inflated = checkFeildsAreInflated()
+        return inflated
+    }
+    
+    func checkFeildsAreInflated() -> Bool {
+        let mandatoryFields: [AnyObject?] = [
+            id,
+            createdAt,
+            updatedAt,
+            name,
+            members,
+            polls
+        ]
+        var fullyInflated = true
+        for field in mandatoryFields {
+            if field == nil {
+                fullyInflated = false
+                break
+            }
+        }
+        return fullyInflated
     }
 }
