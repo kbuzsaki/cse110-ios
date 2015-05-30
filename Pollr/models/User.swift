@@ -73,7 +73,6 @@ class User: Model {
     func toPropertyList() -> [NSObject: AnyObject] {
         var plist = [NSObject: AnyObject]()
         if let id = id          { plist["id"] = id }
-        if let hash = hash      { plist["hash"] = hash }
         if let name = name      { plist["name"] = name }
         if let groups = groups  { plist["groups"] = groups.map { $0.toPropertyList() } }
         return plist
