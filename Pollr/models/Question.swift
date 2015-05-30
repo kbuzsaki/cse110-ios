@@ -76,6 +76,7 @@ class Question: Model {
         type = plist["type"] as? String ?? type
         options = plist["options"] as? [String] ?? options
         responses = (plist["responses"] as? [AnyObject])?.map { Response.initFrom($0) } ?? responses
+        setInflatedIfFullyInflated()
     }
     
     func toPropertyList() -> [NSObject: AnyObject] {
@@ -107,7 +108,6 @@ class Question: Model {
             
             if let plist = plist {
                 updateFrom(propertyList: plist)
-                inflated = true
             }
         }
         
@@ -117,5 +117,29 @@ class Question: Model {
     func refresh() -> NSError? {
         inflated = false
         return inflate()
+    }
+    
+    func setInflatedIfFullyInflated() -> Bool {
+        inflated = checkFeildsAreInflated()
+        return inflated
+    }
+    
+    func checkFeildsAreInflated() -> Bool {
+        let mandatoryFields: [AnyObject?] = [
+            id,
+            createdAt,
+            updatedAt,
+            poll,
+            title,
+            responses
+        ]
+        var fullyInflated = true
+        for field in mandatoryFields {
+            if field == nil {
+                fullyInflated = false
+                break
+            }
+        }
+        return fullyInflated
     }
 }

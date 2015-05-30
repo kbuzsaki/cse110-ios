@@ -15,12 +15,12 @@ class Poll: Model {
     var id: Int?
     var createdAt: NSDate?
     var updatedAt: NSDate?
+    
     var creator: User?
-    var created: String?
-    var last_modified: String?
     var group: Group?
     var name: String?
     var questions: [Question]?
+    var hash: String?
     
     private init() {
     }
@@ -73,8 +73,9 @@ class Poll: Model {
         group = plist["group"] != nil ? Group.initFrom(plist["group"]!) : group
         creator = plist["creator"] != nil ? User.initFrom(plist["creator"]!) : creator
         name = plist["name"] as? String ?? name
-        created = plist["created"] as? String ?? created
         questions = (plist["questions"] as? [AnyObject])?.map { Question.initFrom($0) } ?? questions
+        hash = plist["hash"] as? String ?? hash
+        setInflatedIfFullyInflated()
     }
     
     func toPropertyList() -> [NSObject: AnyObject] {
@@ -83,7 +84,6 @@ class Poll: Model {
         if let groupid = group?.id      { plist["group"] = groupid }
         if let creator = creator        { plist["creator"] = creator }
         if let name = name              { plist["name"] = name }
-        if let created = created        { plist["created"] = created }
         if let questions = questions    { plist["questions"] = questions.map { $0.toPropertyList() } }
         return plist
     }
@@ -101,11 +101,9 @@ class Poll: Model {
         if let id = id,
                 let creatorid = creator?.id,
                 let name = name,
-                let created = created,
                 let questions = questions {
             pollObject["id"] = id
             pollObject["creator"] = creatorid
-            pollObject["created"] = created
             
             if questions.count > 0 {
                 pollObject["questions"] = questions.map {
@@ -142,7 +140,6 @@ class Poll: Model {
             
             if let plist = plist {
                 updateFrom(propertyList: plist)
-                inflated = true
             }
         }
         
@@ -152,5 +149,30 @@ class Poll: Model {
     func refresh() -> NSError? {
         inflated = false
         return inflate()
+    }
+    
+    func setInflatedIfFullyInflated() -> Bool {
+        inflated = checkFeildsAreInflated()
+        return inflated
+    }
+    
+    func checkFeildsAreInflated() -> Bool {
+        let mandatoryFields: [AnyObject?] = [
+            id,
+            createdAt,
+            updatedAt,
+            creator,
+            group,
+            name,
+            questions
+        ]
+        var fullyInflated = true
+        for field in mandatoryFields {
+            if field == nil {
+                fullyInflated = false
+                break
+            }
+        }
+        return fullyInflated
     }
 }

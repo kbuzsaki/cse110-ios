@@ -69,6 +69,7 @@ class User: Model {
         hash = plist["hash"] as? String ?? hash
         name = plist["name"] as? String ?? name
         groups = (plist["groups"] as? [AnyObject])?.map { Group.initFrom($0) } ?? groups
+        setInflatedIfFullyInflated()
     }
     
     func toPropertyList() -> [NSObject: AnyObject] {
@@ -91,7 +92,6 @@ class User: Model {
             
             if let plist = plist {
                 updateFrom(propertyList: plist)
-                inflated = true
             }
         }
         
@@ -121,6 +121,12 @@ class User: Model {
             if let plist = plist {
                 updateFrom(propertyList: plist)
                 inflated = true
+                
+                if let groups = groups {
+                    for group in groups {
+                        group.setInflatedIfFullyInflated()
+                    }
+                }
             }
         }
         
@@ -130,5 +136,29 @@ class User: Model {
     func refreshWithGroups() -> NSError? {
         inflated = false
         return inflateWithGroups()
+    }
+    
+    func setInflatedIfFullyInflated() -> Bool {
+        inflated = checkFeildsAreInflated()
+        return inflated
+    }
+    
+    func checkFeildsAreInflated() -> Bool {
+        let mandatoryFields: [AnyObject?] = [
+            id,
+            createdAt,
+            updatedAt,
+            hash,
+            name,
+            groups
+        ]
+        var fullyInflated = true
+        for field in mandatoryFields {
+            if field == nil {
+                fullyInflated = false
+                break
+            }
+        }
+        return fullyInflated
     }
 }

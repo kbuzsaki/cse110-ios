@@ -21,7 +21,7 @@ class QuestionListTableViewCell: UITableViewCell {
 
     func updateUI() {
         titleLabel.text = question!.title!
-        timeStampLabel.text = question?.poll?.created ?? "TIME WAS NIL"
+        timeStampLabel.text = question?.poll?.createdAt?.timeAgoSinceNow()
     }
 
 }
