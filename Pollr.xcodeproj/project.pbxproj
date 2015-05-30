@@ -47,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		0BDD02B1F9DE438F46076F92 /* libPods-Pollr.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Pollr.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		302512E11B1968A200949E2B /* Pods-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pods-Bridging-Header.h"; sourceTree = "<group>"; };
 		3026E72E1B097BED00BC811A /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Group.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3026E72F1B097BED00BC811A /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Model.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3026E7301B097BED00BC811A /* Poll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Poll.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -194,6 +195,7 @@
 				AC7E511F1AF4550E000B4C18 /* Supporting Files */,
 				AC59D0561B10028B00024E57 /* Controllers */,
 				307E5E1F1B16647400FDA7F6 /* helper */,
+				302512E11B1968A200949E2B /* Pods-Bridging-Header.h */,
 			);
 			path = Pollr;
 			sourceTree = "<group>";
@@ -513,6 +515,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "Pollr/Pods-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -525,6 +528,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "Pollr/Pods-Bridging-Header.h";
 			};
 			name = Release;
 		};
