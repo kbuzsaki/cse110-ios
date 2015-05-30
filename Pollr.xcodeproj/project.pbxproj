@@ -32,6 +32,7 @@
 		ACCF69291B14706600495A38 /* QuestionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCF69281B14706600495A38 /* QuestionListViewController.swift */; };
 		ACCF692B1B15021700495A38 /* QuestionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCF692A1B15021700495A38 /* QuestionListTableViewCell.swift */; };
 		ACE6AA661AF4A1A400D3F47A /* QuestionSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE6AA651AF4A1A400D3F47A /* QuestionSelectorViewController.swift */; };
+		DD881A83ACF9960B775729EE /* libPods-Pollr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BDD02B1F9DE438F46076F92 /* libPods-Pollr.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0BDD02B1F9DE438F46076F92 /* libPods-Pollr.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Pollr.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3026E72E1B097BED00BC811A /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Group.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3026E72F1B097BED00BC811A /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Model.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3026E7301B097BED00BC811A /* Poll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Poll.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -56,6 +58,7 @@
 		309643BC1B15B14300EBAA1B /* RankQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankQuestion.swift; sourceTree = "<group>"; };
 		30D123671B0980280031D055 /* RestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestClient.swift; sourceTree = "<group>"; };
 		30D123681B0980280031D055 /* RestRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestRouter.swift; sourceTree = "<group>"; };
+		538BC91F7CB4547A28FF5016 /* Pods-Pollr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pollr.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pollr/Pods-Pollr.release.xcconfig"; sourceTree = "<group>"; };
 		AC59D0571B1009AA00024E57 /* ShowPollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowPollViewController.swift; sourceTree = "<group>"; };
 		AC59D0591B1023CD00024E57 /* PollTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollTableViewCell.swift; sourceTree = "<group>"; };
 		AC76F63A1B108EEF000EEBCA /* MCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +77,7 @@
 		ACCF69281B14706600495A38 /* QuestionListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionListViewController.swift; sourceTree = "<group>"; };
 		ACCF692A1B15021700495A38 /* QuestionListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionListTableViewCell.swift; sourceTree = "<group>"; };
 		ACE6AA651AF4A1A400D3F47A /* QuestionSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionSelectorViewController.swift; sourceTree = "<group>"; };
+		C36AE7F27CA8C863913FA21F /* Pods-Pollr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pollr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pollr/Pods-Pollr.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD881A83ACF9960B775729EE /* libPods-Pollr.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +99,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00E08E7D10AB98F4C7F22DED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0BDD02B1F9DE438F46076F92 /* libPods-Pollr.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		026916A00B4756DFC387DA1A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C36AE7F27CA8C863913FA21F /* Pods-Pollr.debug.xcconfig */,
+				538BC91F7CB4547A28FF5016 /* Pods-Pollr.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		3026E72D1B097BED00BC811A /* models */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +171,8 @@
 				AC7E511E1AF4550E000B4C18 /* Pollr */,
 				AC7E51341AF4550E000B4C18 /* PollrTests */,
 				AC7E511D1AF4550E000B4C18 /* Products */,
+				026916A00B4756DFC387DA1A /* Pods */,
+				00E08E7D10AB98F4C7F22DED /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -209,9 +233,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AC7E513B1AF4550E000B4C18 /* Build configuration list for PBXNativeTarget "Pollr" */;
 			buildPhases = (
+				A7D6C189BE5A462628F65511 /* Check Pods Manifest.lock */,
 				AC7E51181AF4550E000B4C18 /* Sources */,
 				AC7E51191AF4550E000B4C18 /* Frameworks */,
 				AC7E511A1AF4550E000B4C18 /* Resources */,
+				833D1B00EEE375F1CD907206 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -296,6 +322,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		833D1B00EEE375F1CD907206 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pollr/Pods-Pollr-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A7D6C189BE5A462628F65511 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AC7E51181AF4550E000B4C18 /* Sources */ = {
@@ -447,6 +506,7 @@
 		};
 		AC7E513C1AF4550E000B4C18 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C36AE7F27CA8C863913FA21F /* Pods-Pollr.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Pollr/Info.plist;
@@ -458,6 +518,7 @@
 		};
 		AC7E513D1AF4550E000B4C18 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 538BC91F7CB4547A28FF5016 /* Pods-Pollr.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Pollr/Info.plist;
