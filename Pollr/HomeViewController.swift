@@ -15,6 +15,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     let pollViewSegueIdentifier = "ShowPolls"
     let questionSegueIdentifier = "ShowQuestions"
     var id:Int? = 1
+    var sentProcess = false
     let user = User.initFrom(1)
     
     
@@ -22,11 +23,19 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        
+        dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.value), 0)) {
+            self.user.inflate()
+            
+            dispatch_async(dispatch_get_main_queue()) {
+                self.tableView.reloadData()
+            }
+        }
+        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        user.inflate()
-        return user.groups!.count
+        return user.groups?.count ?? 0 //user's groups are nil if inflating is not finished
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -36,7 +45,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(textCellIdentifier, forIndexPath: indexPath) as! GroupTableViewCell
         
-        user.inflate()
         cell.group = user.groups?[indexPath.row]
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         

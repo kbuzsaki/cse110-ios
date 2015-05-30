@@ -20,8 +20,9 @@ class QuestionListTableViewCell: UITableViewCell {
     }
 
     func updateUI() {
+        println(question!.type)
         titleLabel.text = question!.title!
-        timeStampLabel.text = question?.poll?.created ?? "TIME WAS NIL"
+        timeStampLabel.text = question!.type?.capitalizedString
     }
 
 }

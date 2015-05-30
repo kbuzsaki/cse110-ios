@@ -28,6 +28,8 @@
 		AC7E51291AF4550E000B4C18 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC7E51281AF4550E000B4C18 /* Images.xcassets */; };
 		AC7E512C1AF4550E000B4C18 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC7E512A1AF4550E000B4C18 /* LaunchScreen.xib */; };
 		AC7E51381AF4550E000B4C18 /* PollrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7E51371AF4550E000B4C18 /* PollrTests.swift */; };
+		AC83DDFC1B1861C80086F3F4 /* RankVoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC83DDFB1B1861C80086F3F4 /* RankVoteViewController.swift */; };
+		AC83DDFE1B1861D90086F3F4 /* RankVoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC83DDFD1B1861D90086F3F4 /* RankVoteTableViewCell.swift */; };
 		ACCF69291B14706600495A38 /* QuestionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCF69281B14706600495A38 /* QuestionListViewController.swift */; };
 		ACCF692B1B15021700495A38 /* QuestionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCF692A1B15021700495A38 /* QuestionListTableViewCell.swift */; };
 		ACE6AA661AF4A1A400D3F47A /* QuestionSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE6AA651AF4A1A400D3F47A /* QuestionSelectorViewController.swift */; };
@@ -69,6 +71,8 @@
 		AC7E51311AF4550E000B4C18 /* PollrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PollrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC7E51361AF4550E000B4C18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC7E51371AF4550E000B4C18 /* PollrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollrTests.swift; sourceTree = "<group>"; };
+		AC83DDFB1B1861C80086F3F4 /* RankVoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankVoteViewController.swift; sourceTree = "<group>"; };
+		AC83DDFD1B1861D90086F3F4 /* RankVoteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankVoteTableViewCell.swift; sourceTree = "<group>"; };
 		ACCF69281B14706600495A38 /* QuestionListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionListViewController.swift; sourceTree = "<group>"; };
 		ACCF692A1B15021700495A38 /* QuestionListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionListTableViewCell.swift; sourceTree = "<group>"; };
 		ACE6AA651AF4A1A400D3F47A /* QuestionSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionSelectorViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +133,8 @@
 				AC76F63A1B108EEF000EEBCA /* MCViewController.swift */,
 				AC76F63C1B12AD22000EEBCA /* MCOptionTableViewCell.swift */,
 				ACCF692A1B15021700495A38 /* QuestionListTableViewCell.swift */,
+				AC83DDFB1B1861C80086F3F4 /* RankVoteViewController.swift */,
+				AC83DDFD1B1861D90086F3F4 /* RankVoteTableViewCell.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -300,6 +306,7 @@
 				ACE6AA661AF4A1A400D3F47A /* QuestionSelectorViewController.swift in Sources */,
 				3026E7391B097BED00BC811A /* User.swift in Sources */,
 				3067328D1B15416E00D48A44 /* ChoiceQuestion.swift in Sources */,
+				AC83DDFE1B1861D90086F3F4 /* RankVoteTableViewCell.swift in Sources */,
 				3026E7361B097BED00BC811A /* Poll.swift in Sources */,
 				309643BD1B15B14300EBAA1B /* RankQuestion.swift in Sources */,
 				30D1236A1B0980280031D055 /* RestRouter.swift in Sources */,
@@ -308,6 +315,7 @@
 				AC7A5C6F1B0ADA570079A29F /* HomeViewController.swift in Sources */,
 				AC59D05A1B1023CD00024E57 /* PollTableViewCell.swift in Sources */,
 				3026E7371B097BED00BC811A /* Question.swift in Sources */,
+				AC83DDFC1B1861C80086F3F4 /* RankVoteViewController.swift in Sources */,
 				30D123691B0980280031D055 /* RestClient.swift in Sources */,
 				3026E7341B097BED00BC811A /* Group.swift in Sources */,
 				ACCF69291B14706600495A38 /* QuestionListViewController.swift in Sources */,

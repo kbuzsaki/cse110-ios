@@ -12,7 +12,8 @@ class QuestionListViewController: UIViewController, UITableViewDataSource, UITab
 
     @IBOutlet weak var tableView: UITableView!
     var questions:[Question]?
-    var segueIdentifier = "VotingSegue"
+    var MCSegue = "MCVoteSegue"
+    var RankSegue = "RankVoteSegue"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,12 +31,13 @@ class QuestionListViewController: UIViewController, UITableViewDataSource, UITab
         var cell = self.tableView.dequeueReusableCellWithIdentifier("cell") as! QuestionListTableViewCell
         
         cell.question = questions?[indexPath.row]
-        
+        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        //println("Type = \(questions?[indexPath.row].title!)")
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return questions?.count ?? 1
+        return questions?.count ?? 0
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -43,18 +45,15 @@ class QuestionListViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == segueIdentifier {
+        if segue.identifier == MCSegue {
             if let destination = segue.destinationViewController as? MCViewController {
-                if let row = tableView.indexPathForSelectedRow()?.row {
+                if let row = self.tableView.indexPathForSelectedRow()?.row {
+                    self.tableView.deselectRowAtIndexPath(self.tableView.indexPathForSelectedRow()!, animated: true)
                     var q = questions?[row]
                     destination.question = q
                 }
             }
         }
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     /*

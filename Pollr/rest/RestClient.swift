@@ -24,7 +24,8 @@ class RestClient {
         var request = NSURLRequest(URL: url)
         var response: NSURLResponse?
         var error: NSError?
-        var urlData = NSURLConnection.sendSynchronousRequest(request, returningResponse: &response, error: &error)!
+        println("Starting to get Data from \(url)")
+        var urlData:NSData! = NSURLConnection.sendSynchronousRequest(request, returningResponse: &response, error: &error)
         
         if let error = error {
             println(error.localizedDescription)

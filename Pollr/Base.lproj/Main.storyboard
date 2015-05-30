@@ -129,7 +129,7 @@
                                             <outlet property="numQuestions" destination="lqt-KR-Qq9" id="h2m-ao-aNc"/>
                                             <outlet property="pollName" destination="nix-ub-hzH" id="ZCy-BX-Bir"/>
                                             <outlet property="timeStamp" destination="5fb-Ua-js8" id="vDa-2u-eTD"/>
-                                            <segue destination="PWk-a3-bV1" kind="show" identifier="VotingSegue" id="N5b-iM-Fg7"/>
+                                            <segue destination="PWk-a3-bV1" kind="show" identifier="MCVoteSegue" id="N5b-iM-Fg7"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -150,7 +150,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d9B-fN-6zD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="857" y="917"/>
+            <point key="canvasLocation" x="759" y="979"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Z2h-SB-6NT">
@@ -183,7 +183,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I9e-Ck-GoC">
-                                                    <rect key="frame" x="8" y="17" width="302" height="27.5"/>
+                                                    <rect key="frame" x="8" y="17" width="302" height="28"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -207,7 +207,13 @@
                             <constraint firstItem="Abq-n6-9Io" firstAttribute="centerX" secondItem="36T-z1-MLf" secondAttribute="centerX" id="ohU-yH-gTC"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="J8h-u6-l0w"/>
+                    <navigationItem key="navigationItem" id="J8h-u6-l0w">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="leP-sb-YiR">
+                            <connections>
+                                <action selector="packageResponses:" destination="PWk-a3-bV1" id="bNj-qt-QYA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="questionTitleLabel" destination="Abq-n6-9Io" id="cQb-9Q-HJm"/>
                         <outlet property="tableView" destination="36T-z1-MLf" id="VIm-xa-h5f"/>
@@ -413,7 +419,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="93" id="lwY-aK-9lZ" customClass="QuestionListTableViewCell" customModule="Pollr" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" showsReorderControl="YES" indentationWidth="10" reuseIdentifier="cell" rowHeight="93" id="lwY-aK-9lZ" customClass="QuestionListTableViewCell" customModule="Pollr" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lwY-aK-9lZ" id="3qx-uH-4on">
@@ -442,7 +448,7 @@
                                         <connections>
                                             <outlet property="timeStampLabel" destination="eKg-dW-TQ3" id="4X9-e7-xFw"/>
                                             <outlet property="titleLabel" destination="JDt-Qa-wX4" id="fAb-Jh-AHu"/>
-                                            <segue destination="PWk-a3-bV1" kind="show" identifier="VotingSegue" id="6fB-u7-ywt"/>
+                                            <segue destination="PWk-a3-bV1" kind="show" identifier="MCVoteSegue" id="9Zb-Jl-8il"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -503,6 +509,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="6fB-u7-ywt"/>
+        <segue reference="9Zb-Jl-8il"/>
     </inferredMetricsTieBreakers>
 </document>
