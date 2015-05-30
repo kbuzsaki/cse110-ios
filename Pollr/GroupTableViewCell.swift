@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class GroupTableViewCell: UITableViewCell {
 
     var group:Group? {
@@ -24,7 +25,7 @@ class GroupTableViewCell: UITableViewCell {
     
     func updateUI() {
         groupNameLabel.text = group?.name
-        updatedAtLabel.text = group?.updatedAt
+        updatedAtLabel.text = group?.updatedAt?.timeAgoSinceNow()
     }
     
 }
