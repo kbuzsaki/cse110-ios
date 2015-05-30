@@ -102,4 +102,33 @@ class User: Model {
         inflated = false
         return inflate()
     }
+    
+    func inflateWithGroups() -> NSError? {
+        var anyGroupsNotInflated = false
+        if inflated, let groups = groups {
+            for group in groups {
+                anyGroupsNotInflated = group.inflated || anyGroupsNotInflated
+            }
+        }
+        if !inflated, let id = id  {
+            var client = RestClient()
+            var (error, plist) = client.get(RestRouter.getUserWithGroups(id))
+            
+            if let error = error {
+                return error
+            }
+            
+            if let plist = plist {
+                updateFrom(propertyList: plist)
+                inflated = true
+            }
+        }
+        
+        return nil
+    }
+    
+    func refreshWithGroups() -> NSError? {
+        inflated = false
+        return inflateWithGroups()
+    }
 }
