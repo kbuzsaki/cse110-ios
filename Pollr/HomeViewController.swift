@@ -14,10 +14,14 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     let textCellIdentifier = "TextCell"
     let pollViewSegueIdentifier = "ShowPolls"
     let questionSegueIdentifier = "ShowQuestions"
-    var id:Int? = 1
+    let joinPollSegueIdentifier = "JoinPoll"
+    let questionFromPollSegueIdentifier = "ShowQuestionsFromPoll"
+    static var id:Int? = 1
     var sentProcess = false
     let user = User.initFrom(1)
     
+    // Poll created by Join Poll button.
+    var poll: Poll?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +73,30 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 }
             }
         }
+        
+        // Handle join poll segue
+        if segue.identifier == joinPollSegueIdentifier {
+            if let navController = segue.destinationViewController as? UINavigationController {
+                if let destination = navController.topViewController as? JoinPollTableViewController {
+                        destination.handleNewPollCallback = handleNewlyJoinedPoll
+                }
+            }
+        }
+        
+        // Handle segue to newly joined poll.
+        if segue.identifier == questionFromPollSegueIdentifier,
+        let destination = segue.destinationViewController as? QuestionListViewController {
+            var questions: [Question]
+            if let poll = poll, let pollQuestions = poll.questions {
+                questions = pollQuestions
+            } else {
+                // This shouldn't happen.
+                println("Error: Segue to QuestionListView from HomeView using newly joined poll "
+                    + "but poll is empty or the questions of the poll is empty.")
+                questions = []
+            }
+            destination.questions = questions
+        }
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -95,5 +123,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         
         return q
+    }
+    
+    func handleNewlyJoinedPoll(poll: Poll) {
+        self.poll = poll
+        performSegueWithIdentifier(questionFromPollSegueIdentifier, sender: nil)
     }
 }

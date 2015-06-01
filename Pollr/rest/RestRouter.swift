@@ -46,8 +46,13 @@ class RestRouter {
         return URL_BASE + "/poll/create/"
     }
     
+    //PUT
     static func putResponse(questionId id: Int) -> String {
         return URL_BASE + "/question/\(id)/response/create"
+    }
+    
+    static func getJoinPoll() -> String {
+        return URL_BASE + "/join"
     }
     
 }

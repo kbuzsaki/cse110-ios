@@ -9,10 +9,15 @@
 import UIKit
 
 class JoinPollTableViewController: UITableViewController {
-
+    
+    @IBOutlet weak var joinButton: UIBarButtonItem!
     @IBOutlet weak var enterCodeField: UITextField!
     
-    var joinButton = UIBarButtonItem(title: "Join", style: .Plain, target: nil, action: "validateCode")
+    var handleNewPollCallback: ((Poll) -> Void)?
+    
+    var alert = UIAlertController(title: "Invalid Code",
+        message: "We couldn't find the poll. Did you enter the code correctly?",
+        preferredStyle: .Alert)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,12 +29,12 @@ class JoinPollTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         enterCodeField.becomeFirstResponder()
         
-        // Create the upper right corner join button.
-        joinButton.enabled = false
-        self.navigationItem.rightBarButtonItem = joinButton
-        
         // Enable/disable join button when text is entered.
         enterCodeField.addTarget(self, action: "enterCodeFieldChanged", forControlEvents: UIControlEvents.EditingChanged)
+        
+        // Initialize the alert.
+        var defaultAction = UIAlertAction(title: "OK", style: .Default) {action in} // No handler.
+        alert.addAction(defaultAction)
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,6 +49,9 @@ class JoinPollTableViewController: UITableViewController {
         // Return the number of sections.
         return 1
     }
+    @IBAction func cancel() {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
@@ -51,9 +59,30 @@ class JoinPollTableViewController: UITableViewController {
         return 1
     }
     
-    func validateCode() {
+    @IBAction func validateCode() {
         let code = enterCodeField.text
-        
+        var (error, poll) = Poll.createWithAccessCode(code, userId: HomeViewController.id!)
+        if let error = error {
+            if error.isPollrError(ErrorCode.JOIN_POLL_INVALID_CODE) {
+                // The code entered was invalid.
+                presentViewController(alert, animated: true, completion: nil)
+            } else {
+                println(error.localizedDescription)
+            }
+        } else {
+            if let callback = handleNewPollCallback, let poll = poll {
+                dismissViewControllerAnimated(true) {
+                    callback(poll)
+                }
+            } else if handleNewPollCallback == nil {
+                // The callback should be set, or else something is wrong.
+                println("Error: No callback provided to handle newly created poll in JoinPoll controller.")
+                dismissViewControllerAnimated(true, completion: nil)
+            } else if poll == nil {
+                println("Error: No poll created with access code but no error produced in JoinPoll controller.")
+                dismissViewControllerAnimated(true, completion: nil)
+            }
+        }
     }
     
     func enterCodeFieldChanged() {
@@ -120,6 +149,20 @@ class JoinPollTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        if segue.identifier == questionSegueIdentifier {
+            if let destination = segue.destinationViewController as? QuestionListViewController {
+                var questions: [Question]
+                if let poll = poll, let pollQuestions = poll.questions {
+                    questions = pollQuestions
+                } else {
+                    // This shouldn't happen.
+                    println("Error: Segue to QuestionListView from JoinPoll but poll is empty"
+                        + "or the questions of the poll is empty.")
+                    questions = []
+                }
+                destination.questions = questions
+            }
+        }
     }
     */
 

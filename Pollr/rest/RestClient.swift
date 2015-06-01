@@ -35,8 +35,14 @@ class RestClient {
         var retValue = NSJSONSerialization.JSONObjectWithData(urlData!, options: nil, error: &error) as? [NSObject: AnyObject]
         
         if let error = error {
-            println(error.localizedDescription)
-            return (error, nil)
+            // There was an error in parsing the urlData object as JSON.
+            
+            // Try to return the object as a string.
+            let stringData = NSString(data: urlData!, encoding: NSUTF8StringEncoding)
+            var stringDataPlistObject = [NSObject: AnyObject]()
+            stringDataPlistObject["JSONParsingError"] = true
+            stringDataPlistObject["stringData"] = stringData
+            return (error, stringDataPlistObject)
         }
         
         return (error, retValue)
@@ -86,8 +92,14 @@ class RestClient {
         var retValue = NSJSONSerialization.JSONObjectWithData(urlData!, options: nil, error: &error) as? [NSObject: AnyObject]
         
         if let error = error {
-            println(error.localizedDescription)
-            return (error, nil)
+            // There was an error in parsing the urlData object as JSON.
+            
+            // Try to return the object as a string.
+            let stringData = NSString(data: urlData!, encoding: NSUTF8StringEncoding)
+            var stringDataPlistObject = [NSObject: AnyObject]()
+            stringDataPlistObject["JSONParsingError"] = true
+            stringDataPlistObject["stringData"] = stringData
+            return (error, stringDataPlistObject)
         }
         
         return (error, retValue)

@@ -127,6 +127,31 @@ class Poll: Model {
         return nil
     }
     
+    class func createWithAccessCode(code: String, userId: Int) -> (NSError?, Poll?) {
+        var client = RestClient()
+        var data: [NSObject: AnyObject] = [
+            "code": code,
+            "user": userId
+        ]
+        var (error, returnData) = client.put(RestRouter.getJoinPoll(), data: data)
+        
+        // If the server returns with "invalid code", the json parser will return an
+        // error but also return the string data. If the returned data is actually
+        // "Invalid code", then return a JOIN_POLL_INVALID_CODE error.
+        if let error = error, let data = returnData {
+            if data["stringData"] as? String == "\"Invalid code\"" {
+                var invalidCodeError = NSError(domain: "Pollr",
+                    code: ErrorCode.JOIN_POLL_INVALID_CODE, userInfo: nil)
+                return (invalidCodeError, nil)
+            }
+        } else if let error = error {
+            return (error, nil)
+        }
+        
+        // If there is no error, returnData shouldn't be nil.
+        return (nil, Poll.initFrom(propertyList: returnData!))
+    }
+    
     func inflate() -> NSError? {
         if !inflated, let id = id  {
             var client = RestClient()

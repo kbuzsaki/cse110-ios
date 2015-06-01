@@ -21,6 +21,8 @@
 		309643BD1B15B14300EBAA1B /* RankQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309643BC1B15B14300EBAA1B /* RankQuestion.swift */; };
 		30D123691B0980280031D055 /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D123671B0980280031D055 /* RestClient.swift */; };
 		30D1236A1B0980280031D055 /* RestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D123681B0980280031D055 /* RestRouter.swift */; };
+		30FC7E291B1BDA88007CC2C8 /* ErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FC7E281B1BDA88007CC2C8 /* ErrorCode.swift */; };
+		30FC7E2B1B1BDAD5007CC2C8 /* NSError+isPollrError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FC7E2A1B1BDAD5007CC2C8 /* NSError+isPollrError.swift */; };
 		AC59D0581B1009AA00024E57 /* ShowPollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC59D0571B1009AA00024E57 /* ShowPollViewController.swift */; };
 		AC59D05A1B1023CD00024E57 /* PollTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC59D0591B1023CD00024E57 /* PollTableViewCell.swift */; };
 		AC76F63B1B108EEF000EEBCA /* MCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC76F63A1B108EEF000EEBCA /* MCViewController.swift */; };
@@ -66,6 +68,8 @@
 		309643BC1B15B14300EBAA1B /* RankQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankQuestion.swift; sourceTree = "<group>"; };
 		30D123671B0980280031D055 /* RestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestClient.swift; sourceTree = "<group>"; };
 		30D123681B0980280031D055 /* RestRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestRouter.swift; sourceTree = "<group>"; };
+		30FC7E281B1BDA88007CC2C8 /* ErrorCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorCode.swift; path = helper/ErrorCode.swift; sourceTree = "<group>"; };
+		30FC7E2A1B1BDAD5007CC2C8 /* NSError+isPollrError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSError+isPollrError.swift"; path = "helper/NSError+isPollrError.swift"; sourceTree = "<group>"; };
 		538BC91F7CB4547A28FF5016 /* Pods-Pollr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pollr.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pollr/Pods-Pollr.release.xcconfig"; sourceTree = "<group>"; };
 		AC59D0571B1009AA00024E57 /* ShowPollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowPollViewController.swift; sourceTree = "<group>"; };
 		AC59D0591B1023CD00024E57 /* PollTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollTableViewCell.swift; sourceTree = "<group>"; };
@@ -145,6 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				307E5E1D1B16646300FDA7F6 /* NSDate+ISO.swift */,
+				30FC7E281B1BDA88007CC2C8 /* ErrorCode.swift */,
+				30FC7E2A1B1BDAD5007CC2C8 /* NSError+isPollrError.swift */,
 			);
 			name = helper;
 			sourceTree = "<group>";
@@ -390,6 +396,7 @@
 				3026E7361B097BED00BC811A /* Poll.swift in Sources */,
 				09A8D9351B1B927500D20670 /* RankCreateViewController.swift in Sources */,
 				302512EF1B1B799500949E2B /* JoinPollTableViewController.swift in Sources */,
+				30FC7E291B1BDA88007CC2C8 /* ErrorCode.swift in Sources */,
 				309643BD1B15B14300EBAA1B /* RankQuestion.swift in Sources */,
 				30D1236A1B0980280031D055 /* RestRouter.swift in Sources */,
 				AC76F63B1B108EEF000EEBCA /* MCViewController.swift in Sources */,
@@ -398,6 +405,7 @@
 				AC59D05A1B1023CD00024E57 /* PollTableViewCell.swift in Sources */,
 				09A8D9331B1B8C8800D20670 /* MCCreateViewController.swift in Sources */,
 				3026E7371B097BED00BC811A /* Question.swift in Sources */,
+				30FC7E2B1B1BDAD5007CC2C8 /* NSError+isPollrError.swift in Sources */,
 				307E5E1E1B16646300FDA7F6 /* NSDate+ISO.swift in Sources */,
 				30D123691B0980280031D055 /* RestClient.swift in Sources */,
 				3026E7341B097BED00BC811A /* Group.swift in Sources */,
