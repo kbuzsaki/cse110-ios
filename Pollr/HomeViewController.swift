@@ -19,6 +19,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     static var id:Int? = 1
     var sentProcess = false
     let user = User.initFrom(1)
+    var refreshControl = UIRefreshControl()
     
     // Poll created by Join Poll button.
     var poll: Poll?
@@ -27,22 +28,47 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+
+            refresh()
+        println("DONE")
         
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to Refresh")
+        refreshControl.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(refreshControl)
+    }
+    
+    
+    func refresh() {
+        println("refreshing")
         dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.value), 0)) {
-            self.user.inflate()
+            self.user.refreshWithGroups()
             
             dispatch_async(dispatch_get_main_queue()) {
                 self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
             }
         }
-        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return user.groups?.count ?? 0 //user's groups are nil if inflating is not finished
+        
+        if let groups = user.groups {
+            // Sort the groups by timestamp.
+            user.groups = groups.sorted { (g0, g1) -> Bool in g0.updatedAt!.isLaterThan(g1.updatedAt) }
+        }
+        
+        return user.groups?.count ?? 1 //user's groups are nil if inflating is not finished
+
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        
+        if let groups = user.groups {
+            return groups.count
+        } else {
+            println("Error: User has no group fields loaded.")
+        }
+        
         return 1
     }
     
